@@ -30,6 +30,7 @@ class ControladorEmpleado{
 
 
 			   	$respuesta = ModeloEmpleados::mdlIngresarEmpleado($tabla, $datos);
+			   	
 
 			   	if($respuesta == "ok"){
 
@@ -55,7 +56,7 @@ class ControladorEmpleado{
 
 					swal({
 						  type: "error",
-						  title: "El modelo regreso error",
+						  title: "Error interno favor de reportar al administrador.",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){

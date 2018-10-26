@@ -41,15 +41,15 @@
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Nombre</th>
-           <th>nacionalidad</th>
-           <th>email</th>
-           <th>Teléfono</th>
-           <th>Ext</th>
+           <th style="width:10px">Nombre</th>
+           <th style="width:10px">nacionalidad</th>
+           <th style="width:10px">email</th>
+           <th style="width:10px">Teléfono</th>
+           <th style="width:10px">Ext</th>
            <th style="width:10px">pais</th>
-           <th>Area</th> 
-           <th>Puesto</th>
-           <th>Ingreso al sistema</th>
+           <th style="width:10px">Area</th> 
+           <th style="width:10px">Puesto</th>
+           <th style="width:10px">status</th>
            <th style="width:10px">Acciones</th>
 
          </tr> 
@@ -73,21 +73,33 @@
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["nombre"].'</td>
+                    <td>'.$value["nombre"].'</td>
                     <td>'.$value["nacionalidad"].'</td>
                     <td>'.$value["email"].'</td>
                     <td>'.$value["telefono"].'</td>
                      <td>'.$value["extencion"].'</td>
                      <td>'.$value["pais"].'</td>
                      <td>'.$value["area"].'</td>
-                     <td>'.$value["puesto"].'</td>
-                     <td>'.$value["fecha_alta"].'</td>
+                     <td>'.$value["puesto"].'</td>';
 
+                     if($value["estatus"] === "activo"){
+
+                    echo '<td><button class="btn btn-success">Activo</button></td>';
+
+                  }else{
+
+                    echo '<td><button class="btn btn-danger">Inactivo</button></td>';
+
+                  }             
+                     
+                     echo '
                     <td>
 
                       <div class="btn-group">
+
+                       <button class="btn btn-info btnDetalles" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#mostarDetalles"><i class="fa fa-user-plus"></i></button>
                           
-                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarEmpleado" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEmpleado"><i class="fa fa-pencil"></i></button>
 
                         <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
@@ -180,7 +192,7 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaNacionalidad" placeholder="Nacionalidad" required>
 
@@ -271,7 +283,7 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-sitemap"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaArea" placeholder="Ingresar area" required>
 
@@ -285,7 +297,7 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-sitemap"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoPuesto" placeholder="Ingresar puesto" required>
 
@@ -299,7 +311,7 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-address-card"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoDni" placeholder="Ingresar DNI" required>
 
@@ -313,9 +325,9 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoFolioDni" placeholder="Ingresar DNI" required>
+                <input type="text" class="form-control input-lg" name="nuevoFolioDni" placeholder="Folio DNI" required>
 
               </div>
 
@@ -328,9 +340,9 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoPais" placeholder="Ingresar pais" required>
+                <input type="text" class="form-control input-lg" name="nuevoPais" placeholder="Ingresar pais de residencia" required>
 
               </div>
 
@@ -356,7 +368,7 @@ MODAL AGREGAR EMPLEADO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
                 <input type="number" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar codigo postal" required>
 
@@ -397,41 +409,286 @@ MODAL AGREGAR EMPLEADO
 </div>
 
 
-<!--  <tr>
+<!--=====================================
+MODAL EDITAR EMPLEADO
+======================================-->
 
-            <td>1</td>
+<div id="modalEditarEmpleado" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
 
-            <td>Juan Villegas</td>
+    <div class="modal-content">
 
-            <td>mexicano</td>
+      <form role="form" method="post">
 
-            <td>juan@hotmail.com</td>
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
 
-            <td>555 57 67</td>
+        <div class="modal-header" style="background:#3c8dbc; color:white">
 
-            <td>54</td>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-            <td>calle 27 # 40 - 36</td>
+          <h4 class="modal-title">Agregar cliente</h4>
 
-            <td>ventas</td>
+        </div>
 
-            <td>vendedor</td>
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
 
-            <td>2017-12-11 12:05:32</td>
+        <div class="modal-body">
 
-            <td>
+          <div class="box-body">
 
-              <div class="btn-group">
+            <!-- ENTRADA PARA EL NOMBRE -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                 <button class="btn btn-info"><i class="fa fa-address-card"> detalles</i></button>
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                <input type="text" class="form-control input-lg" name="editarEmpleado"  id="editarEmpleado"  required>
+                <input type="hidden" id="idEmpleado">
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+              </div>
 
-              </div>  
+            </div>
 
-            </td>
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-          </tr>
- -->
+                <input type="text" class="form-control input-lg" name="editarDob"  id="editarDob" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA NACIONALIDAD -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarNacionalidad" id="editarNacionalidad" required>
+
+              </div>
+
+            </div>
+
+
+             <!-- ENTRADA PARA EL EMAIL -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+
+                <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL EMAIL PERSONAL-->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+
+                <input type="email" class="form-control input-lg" name="editarEmailPersonal" id="editarEmailPersonal" required>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- ENTRADA PARA EL TELÉFONO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+
+            <!-- ENTRADA PARA EL TELÉFONO PERSONAL -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarTelefonoPersonal" id="editarTelefonoPersonal"data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- ENTRADA PARA EXTENCION -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="number" min="0" class="form-control input-lg" name="editarExtencion" id="editarExtencion"  required>
+
+              </div>
+
+            </div>
+
+
+             <!-- ENTRADA PARA LA AREA -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-sitemap"></i></span> 
+
+                <input type="text" class="form-control input-lg" name=editarArea" id="editarArea"  required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA PUESTO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-sitemap"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarPuesto" id="editarPuesto"  required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA DNI -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-address-card"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarDni" id="editarDni"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA folio -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarFolioDni" id="editarFolioDni"  required>
+
+              </div>
+
+            </div>
+
+
+            <!-- ENTRADA PARA PAIS -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarPais" id="editarPais" required>
+
+              </div>
+
+            </div>
+
+              <!-- ENTRADA PARA DIRECCION -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion" required>
+
+              </div>
+
+            </div>
+
+              <!-- ENTRADA PARA CODIGO POSTAL -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="number" class="form-control input-lg" name="editarCodigo" id="editarCodigo" required>
+
+              </div>
+
+            </div>
+  
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+      </form>
+
+
+      <!-- <?php
+
+        $crearEmpleado = new ControladorEmpleado();
+        $crearEmpleado -> ctrCrearEmpleado();
+
+      ?> -->
+
+    </div>
+
+  </div>
+
+</div>
+
