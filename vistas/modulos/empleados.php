@@ -101,8 +101,6 @@
                           
                         <button class="btn btn-warning btnEditarEmpleado" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEmpleado"><i class="fa fa-pencil"></i></button>
 
-                        <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
-
                       </div>  
 
                     </td>
@@ -146,7 +144,7 @@ MODAL AGREGAR EMPLEADO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar cliente</h4>
+          <h4 class="modal-title">Crear Empleado</h4>
 
         </div>
 
@@ -388,7 +386,7 @@ MODAL AGREGAR EMPLEADO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar cliente</button>
+          <button type="submit" class="btn btn-primary">Guardar Empleado</button>
 
         </div>
 
@@ -429,7 +427,7 @@ MODAL EDITAR EMPLEADO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar cliente</h4>
+          <h4 class="modal-title">Editar Empleado</h4>
 
         </div>
 
@@ -659,6 +657,7 @@ MODAL EDITAR EMPLEADO
               </div>
 
             </div>
+            
   
           </div>
 
@@ -679,16 +678,20 @@ MODAL EDITAR EMPLEADO
       </form>
 
 
-      <!-- <?php
+      <?php
 
-        $crearEmpleado = new ControladorEmpleado();
-        $crearEmpleado -> ctrCrearEmpleado();
+        $editarEmpleado = new ControladorEmpleado();
+        $editarEmpleado -> ctrEditarEmpleado();
 
-      ?> -->
+      ?> 
 
     </div>
 
   </div>
 
 </div>
+
+
+
+
 

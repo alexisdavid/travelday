@@ -120,6 +120,17 @@ $bloque3 = <<<EOF
 		</tr>
 
 	</table>
+	<table style="font-size:10px; padding:5px 10px;">
+		
+		<tr>
+
+		<td style="width:220px">email: $respuesta[email]</td>
+	
+		
+		<td style="width:220px">telefono: $respuesta[telefono]</td>
+		</tr>
+
+	</table>
 
 	
 EOF;

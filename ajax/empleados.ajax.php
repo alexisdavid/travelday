@@ -1,22 +1,22 @@
 <?php
 
-require_once "../controladores/clientes.controlador.php";
-require_once "../modelos/clientes.modelo.php";
+require_once "../controladores/empleados.controlador.php";
+require_once "../modelos/empleados.modelo.php";
 
-class AjaxClientes{
+class AjaxEmpleados{
 
 	/*=============================================
-	EDITAR CLIENTE
+	EDITAR EMPLEADO
 	=============================================*/	
 
-	public $idCliente;
+	public $idEmpleado;
 
-	public function ajaxEditarCliente(){
+	public function ajaxEditarEmpleado(){
 
 		$item = "id";
-		$valor = $this->idCliente;
+		$valor = $this->idEmpleado;
 
-		$respuesta = ControladorClientes::ctrMostrarClientes($item, $valor);
+		$respuesta = ControladorEmpleado::ctrMostrarEmpleado($item, $valor);
 
 		echo json_encode($respuesta);
 
@@ -26,13 +26,13 @@ class AjaxClientes{
 }
 
 /*=============================================
-EDITAR CLIENTE
+EDITAR EMPLEADO
 =============================================*/	
 
-if(isset($_POST["idCliente"])){
+if(isset($_POST["idEmpleado"])){
 
-	$cliente = new AjaxClientes();
-	$cliente -> idCliente = $_POST["idCliente"];
-	$cliente -> ajaxEditarCliente();
+	$cliente = new AjaxEmpleados();
+	$cliente -> idEmpleado = $_POST["idEmpleado"];
+	$cliente -> ajaxEditarEmpleado();
 
 }

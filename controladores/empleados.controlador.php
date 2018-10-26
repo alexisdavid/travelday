@@ -114,6 +114,111 @@ class ControladorEmpleado{
 		return $respuesta;
 	
 	}
+	/*=============================================
+	EDITAR MPLEADOS
+	=============================================*/
+
+	static public function ctrEditarEmpleado(){
+
+		if(isset($_POST["editarEmpleado"])){
+
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarEmpleado"]) &&
+			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["editarEmail"]) &&
+			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["editarEmailPersonal"])){
+
+			   	$tabla = "empleados";
+			   
+
+			   $datos = array("id"=>$_POST["idEmpleado"],
+			   				  "nombre"=>$_POST["editarEmpleado"],
+					           "dob"=>$_POST["editarDob"],
+					           "nacionalidad"=>$_POST["editarNacionalidad"],
+					           "email"=>$_POST["editarEmail"],
+					           "emailpersonal"=>$_POST["editarEmailPersonal"],
+					           "telefono"=>$_POST["editarTelefono"],
+					           "telefono2"=>$_POST["editarTelefonoPersonal"],
+					           "extencion"=>$_POST["editarExtencion"],
+					           "area"=>$_POST["editarArea"],
+					           "puesto"=>$_POST["editarPuesto"],
+					           "dni"=>$_POST["editarDni"],
+					            "folio_dni"=>$_POST["editarFolioDni"],
+					            "pais"=>$_POST["editarPais"],
+					           "direccion"=>$_POST["editarDireccion"],
+					           "cp"=>$_POST["editarCodigo"]);
+
+
+			   	$respuesta = ModeloEmpleados::mdlEditarEmpleado($tabla, $datos);
+			 
+
+			   	if($respuesta == "ok"){
+
+					echo'<script>
+
+					swal({
+						  type: "success",
+						  title: "El cliente ha sido editado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "empleados";
+
+									}
+								})
+
+					</script>';
+
+				}else{
+					echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "Error interno favor de reportar al administrador.",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "empleados";
+
+									}
+								})
+
+					</script>';
+				}
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "¡El cliente no puede ir vacío o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "empleados";
+
+							}
+						})
+
+			  	</script>';
+
+
+
+			}
+
+
+
+
+		}
+
+
+	}
+	
 
 
 

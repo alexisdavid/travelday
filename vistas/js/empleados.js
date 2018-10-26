@@ -20,29 +20,43 @@ $(".tablas").on("click", ".btnEditarEmpleado", function(){
 	console.log(idEmpleado);
 
 
-	// var datos = new FormData();
- //    datos.append("idCliente", idCliente);
+	var datos = new FormData();
+    datos.append("idEmpleado", idEmpleado);
 
- //    $.ajax({
+    $.ajax({
 
- //      url:"ajax/clientes.ajax.php",
- //      method: "POST",
- //      data: datos,
- //      cache: false,
- //      contentType: false,
- //      processData: false,
- //      dataType:"json",
- //      success:function(respuesta){
+      url:"ajax/empleados.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+
+      	console.log(respuesta);
       
- //      	   $("#idCliente").val(respuesta["id"]);
-	//        $("#editarCliente").val(respuesta["nombre"]);
-	//        $("#editarDocumentoId").val(respuesta["documento"]);
-	//        $("#editarEmail").val(respuesta["email"]);
-	//        $("#editarTelefono").val(respuesta["telefono"]);
-	//        $("#editarDireccion").val(respuesta["direccion"]);
- //           $("#editarFechaNacimiento").val(respuesta["fecha_nacimiento"]);
-	//   }
+      
+      	   $("#idEmpleado").val(respuesta["id"]);
+	       $("#editarEmpleado").val(respuesta["nombre"]);
+	       $("#editarDob").val(respuesta["dob"]);
+	       $("#editarNacionalidad").val(respuesta["nacionalidad"]);
+	       $("#editarEmail").val(respuesta["email"]);
+	       $("#editarEmailPersonal").val(respuesta["emailpersonal"]);
+           $("#editarTelefono").val(respuesta["telefono"]);
+           $("#editarTelefonoPersonal").val(respuesta["telefono2"]);
+            $("#editarExtencion").val(respuesta["extencion"]);
+	       $("#editarArea").val(respuesta["area"]);
+	       $("#editarPuesto").val(respuesta["puesto"]);
+	       $("#editarDni").val(respuesta["dni"]);
+	       $("#editarFolioDni").val(respuesta["folio_dni"]);
+	       $("#editarPais").val(respuesta["pais"]);
+           $("#editarDireccion").val(respuesta["direccion"]);
+           $("#editarCodigo").val(respuesta["cp"]);
+           $("#editarEstado").val(respuesta["estatus"]);
+           
+	  }
 
- //  	})
+  	})
 
 })
