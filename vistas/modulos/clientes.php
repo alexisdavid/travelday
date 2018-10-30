@@ -42,13 +42,11 @@
            
            <th style="width:10px">#</th>
            <th>Nombre</th>
-           <th>Documento ID</th>
+           <th>rfc</th>          
+           <th>Dirección</th>
            <th>Email</th>
            <th>Teléfono</th>
-           <th>Dirección</th>
-           <th>Fecha nacimiento</th> 
-           <th>Total compras</th>
-           <th>Última compra</th>
+           <th>Telefono 2</th>         
            <th>Ingreso al sistema</th>
            <th>Acciones</th>
 
@@ -76,17 +74,13 @@
 
                     <td>'.$value["documento"].'</td>
 
+                    <td>'.$value["direccion"].'</td>
+
                     <td>'.$value["email"].'</td>
 
                     <td>'.$value["telefono"].'</td>
 
-                    <td>'.$value["direccion"].'</td>
-
-                    <td>'.$value["fecha_nacimiento"].'</td>             
-
-                    <td>'.$value["compras"].'</td>
-
-                    <td>0000-00-00 00:00:00</td>
+                    <td>'.$value["telefono2"].'</td>             
 
                     <td>'.$value["fecha"].'</td>
 
@@ -166,7 +160,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL DOCUMENTO ID -->
+            <!-- ENTRADA PARA EL DOCUMENTO RFC -->
             
             <div class="form-group">
               
@@ -174,7 +168,21 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="number" min="0" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
+                <input type="text" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar rfc" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
 
               </div>
 
@@ -208,29 +216,15 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
+             <!-- ENTRADA PARA EL TELÉFONO2 -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
-
-              </div>
-
-            </div>
-
-             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono2" placeholder="Ingresar teléfono celular" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 
@@ -313,7 +307,9 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL DOCUMENTO ID -->
+            
+
+            <!-- ENTRADA PARA EL RFC -->
             
             <div class="form-group">
               
@@ -321,7 +317,21 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="number" min="0" class="form-control input-lg" name="editarDocumentoId" id="editarDocumentoId" required>
+                <input type="text"  class="form-control input-lg" name="editarDocumentoId" id="editarDocumentoId" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion"  required>
 
               </div>
 
@@ -355,29 +365,17 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+
+              <!-- ENTRADA PARA EL TELÉFONO 2-->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion"  required>
-
-              </div>
-
-            </div>
-
-             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarFechaNacimiento" id="editarFechaNacimiento"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                <input type="text" class="form-control input-lg" name="editarTelefono2" id="editarTelefono2" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 
