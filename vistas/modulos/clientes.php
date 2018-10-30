@@ -291,6 +291,7 @@ MODAL EDITAR CLIENTE
 
         <div class="modal-body">
 
+
           <div class="box-body">
 
             <!-- ENTRADA PARA EL NOMBRE -->

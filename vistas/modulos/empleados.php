@@ -448,7 +448,7 @@ MODAL EDITAR EMPLEADO
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarEmpleado"  id="editarEmpleado"  required>
-                <input type="hidden" id="idEmpleado">
+                <input type="hidden" id="idEmpleado" name="idEmpleado">
 
               </div>
 
