@@ -78,7 +78,7 @@ class ModeloEmpleados{
 	=============================================*/
 	static public function mdlEditarEmpleado($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, dob = :dob, nacionalidad = :nacionalidad, email = :email, emailpersonal = :emailpersonal, telefono = :telefono, telefono2 =:telefono2, extencion = :extencion, area = :area, puesto = :puesto, dni= :dni, folio_dni = :folio_dni, pais = :pais, direccion =:direccion, cp = :cp  WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, dob = :dob, nacionalidad = :nacionalidad, email = :email, emailpersonal = :emailpersonal, telefono = :telefono, telefono2 =:telefono2, extencion = :extencion, area = :area, puesto = :puesto, dni= :dni, folio_dni = :folio_dni, pais = :pais, direccion =:direccion, cp = :cp, estatus = :estatus WHERE id = :id");
 
 			$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		    $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -96,6 +96,7 @@ class ModeloEmpleados{
 			$stmt->bindParam(":pais", $datos["pais"], PDO::PARAM_STR);
 			$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
 			$stmt->bindParam(":cp", $datos["cp"], PDO::PARAM_INT);
+			$stmt->bindParam(":estatus", $datos["estatus"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

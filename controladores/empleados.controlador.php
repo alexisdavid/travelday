@@ -143,8 +143,9 @@ class ControladorEmpleado{
 					           "dni"=>$_POST["editarDni"],
 					            "folio_dni"=>$_POST["editarFolioDni"],
 					            "pais"=>$_POST["editarPais"],
-					           "direccion"=>$_POST["editarDireccion"],
-					           "cp"=>$_POST["editarCodigo"]);
+							   "direccion"=>$_POST["editarDireccion"],
+							   "cp"=>$_POST["editarCodigo"],
+							   "estatus"=>$_POST["editarEstado"]);
 
 
 			   	$respuesta = ModeloEmpleados::mdlEditarEmpleado($tabla, $datos);

@@ -10,6 +10,7 @@ $(".tablas").on("click", ".btnEditarCliente", function(){
 
     $.ajax({
 
+      
       url:"ajax/clientes.ajax.php",
       method: "POST",
       data: datos,
@@ -19,7 +20,7 @@ $(".tablas").on("click", ".btnEditarCliente", function(){
       dataType:"json",
       success:function(respuesta){
       
-      	   $("#idCliente").val(respuesta["id"]);
+      	 $("#idCliente").val(respuesta["id"]);
 	       $("#editarCliente").val(respuesta["nombre"]);
          $("#editarDocumentoId").val(respuesta["documento"]);
          $("#editarDireccion").val(respuesta["direccion"]);

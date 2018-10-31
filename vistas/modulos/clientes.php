@@ -57,49 +57,30 @@
         <tbody>
 
         <?php
-
           $item = null;
           $valor = null;
-
           $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
-
           foreach ($clientes as $key => $value) {
             
-
             echo '<tr>
-
                     <td>'.($key+1).'</td>
-
                     <td>'.$value["nombre"].'</td>
-
                     <td>'.$value["documento"].'</td>
-
                     <td>'.$value["direccion"].'</td>
-
                     <td>'.$value["email"].'</td>
-
                     <td>'.$value["telefono"].'</td>
-
                     <td>'.$value["telefono2"].'</td>             
-
                     <td>'.$value["fecha"].'</td>
-
                     <td>
-
                       <div class="btn-group">
                           
                         <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
-
                         <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
-
                       </div>  
-
                     </td>
-
                   </tr>';
           
             }
-
         ?>
    
         </tbody>
@@ -249,10 +230,8 @@ MODAL AGREGAR CLIENTE
       </form>
 
       <?php
-
         $crearCliente = new ControladorClientes();
         $crearCliente -> ctrCrearCliente();
-
       ?>
 
     </div>
@@ -401,10 +380,8 @@ MODAL EDITAR CLIENTE
       </form>
 
       <?php
-
         $editarCliente = new ControladorClientes();
         $editarCliente -> ctrEditarCliente();
-
       ?>
 
     
@@ -416,10 +393,6 @@ MODAL EDITAR CLIENTE
 </div>
 
 <?php
-
   $eliminarCliente = new ControladorClientes();
   $eliminarCliente -> ctrEliminarCliente();
-
 ?>
-
-

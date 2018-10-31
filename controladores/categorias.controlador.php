@@ -150,9 +150,10 @@ class ControladorCategorias{
 	static public function ctrBorrarCategoria(){
 
 		if(isset($_GET["idCategoria"])){
+		
 
 			$tabla ="Categorias";
-			$datos = $_GET["idCategoria"];
+			$datos = $_GET['idCategoria'];
 
 			$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
 

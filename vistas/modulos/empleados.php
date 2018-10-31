@@ -567,7 +567,7 @@ MODAL EDITAR EMPLEADO
               
                 <span class="input-group-addon"><i class="fa fa-sitemap"></i></span> 
 
-                <input type="text" class="form-control input-lg" name=editarArea" id="editarArea"  required>
+                <input type="text" class="form-control input-lg" name="editarArea" id="editarArea"  required>
 
               </div>
 
@@ -653,6 +653,20 @@ MODAL EDITAR EMPLEADO
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
                 <input type="number" class="form-control input-lg" name="editarCodigo" id="editarCodigo" required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA CAMBIO DE STATUS -->
+            
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-code-fork"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarEstado" id="editarEstado" required>
 
               </div>
 
