@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-10-2018 a las 17:06:21
+-- Tiempo de generación: 01-11-2018 a las 04:30:19
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -41,10 +41,10 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
 (1, 'Equipos Electromecánicos', '2017-12-21 20:53:29'),
 (2, 'Taladros', '2017-12-21 20:53:29'),
-(3, 'Andamios', '2017-12-21 20:53:29'),
-(4, 'Generadores de energía', '2017-12-21 20:53:29'),
-(5, 'Equipos para construcción', '2017-12-21 20:53:29'),
-(6, 'Martillos mecánicos', '2017-12-21 23:06:40');
+(3, 'reservaciones', '2018-10-31 00:22:57'),
+(4, 'cruceros', '2018-10-31 00:22:44'),
+(5, 'hoteles', '2018-10-31 00:22:30'),
+(6, 'vuelos', '2018-10-31 00:22:16');
 
 -- --------------------------------------------------------
 
@@ -55,12 +55,11 @@ INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
-  `documento` int(11) NOT NULL,
+  `documento` text COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
   `email` text COLLATE utf8_spanish_ci NOT NULL,
   `telefono` text COLLATE utf8_spanish_ci NOT NULL,
-  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `compras` int(11) NOT NULL,
+  `telefono2` text COLLATE utf8_spanish_ci NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -68,8 +67,9 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `fecha`) VALUES
-(1, 'Juan Villegas', 81611239, 'juan@hotmail.com', '(301) 391-3456', 'Calle 45F # 23 - 4s', '1980-11-10', 0, '2018-10-26 03:31:30');
+INSERT INTO `clientes` (`id`, `nombre`, `documento`, `direccion`, `email`, `telefono`, `telefono2`, `fecha`) VALUES
+(1, 'Juan Villegas', '81611239', 'ALFREDO V. BONFIL', 'duartebonfil@gmail.com', '(998) 243-2827', '(998) 263-2345', '2018-10-31 01:17:57'),
+(2, 'JESUS DUARTE', 'DUCJ721121MMA', 'ALFREDO V. BONFIL', 'duartebonfil@gmail.com', '(998) 243-2827', '(998) 243-2827', '2018-10-30 03:45:07');
 
 -- --------------------------------------------------------
 
@@ -104,10 +104,11 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `nombre`, `dob`, `nacionalidad`, `email`, `emailpersonal`, `telefono`, `telefono2`, `extencion`, `area`, `puesto`, `dni`, `folio_dni`, `pais`, `direccion`, `cp`, `fecha_alta`, `fecha_baja`, `estatus`) VALUES
-(1, 'alexis', '2011-02-03', 'KN', 'alexisduarte1512@gmail.com', 'alexisduarte1512@hotmail.com', '(111) 111-1111', '(111) 111-1111', 111, 'hvv', 'programador', 'weerrrf', 'kb8766', 'mexico', 'ssf', 11, '2018-10-25 00:43:00', '0000-00-00', 'activo'),
+(1, 'alexis', '1991-12-31', 'ducj721121mma', 'alexisduarte1512@gmail.com', 'alexisduarte1512@hotmail.com', '(998) 243-2827', '(998) 112-3987', 234, 'desarrollo', 'programador', 'visa', 'kb8766', 'mexico', 'ssf', 77560, '2018-10-25 00:43:00', '0000-00-00', 'activo'),
 (2, 'juan', '2034-05-04', 'mexicano', 'alexisduarte1512@gmail.com', 'alexisduarte1512@hotmail.com', '(992) 838-9210', '(123) 049-2849', 34, 'desarrollo', 'programador', 'weerrrf', 'kdks34', 'mexico', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 445, '2018-10-25 00:50:35', '0000-00-00', 'activo'),
-(3, 'marcos antonio duarte garcia', '2022-02-22', 'eeuu', 'ajsjdjdj@sdjdj.com', 'sjddfh@jdjdj.com', '(888) 773-8499', '(727) 384-9494', 45, 'ventas', 'vendedor', 'visa', '9283847d84he83', 'colombia', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 77560, '2018-10-25 01:38:19', '0000-00-00', 'inactivo'),
-(5, 'juan', '2012-03-04', 'msjdjw', 'nwxjnxw@jdjdj.com', 'alskeksd@hotmail.com', '(999) 999-9999', '(999) 999-9999', 7766, 'jsjsdjsdg', 'hjdhjwd', 'nsb7sxh', '1882bbs', 'jjajwje', 'jwjwjwj', 18282, '2018-10-26 03:49:04', '0000-00-00', '');
+(3, 'marcos antonio duarte garcia', '2022-02-22', 'eeuu', 'ajsjdjdj@sdjdj.com', 'sjddfh@jdjdj.com', '(888) 773-8499', '(727) 384-9494', 45, 'ventas', 'vendedor', 'visa', '9283847d84he83', 'colombia', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 77560, '2018-10-25 01:38:19', '2018-10-30', 'inactivo'),
+(5, 'juan', '2012-03-04', 'msjdjw', 'nwxjnxw@jdjdj.com', 'alskeksd@hotmail.com', '(999) 999-9999', '(999) 999-9999', 7766, 'desarrollo', 'hjdhjwd', 'nsb7sxh', '1882bbs', 'jjajwje', 'jwjwjwj', 18282, '2018-10-26 03:49:04', '0000-00-00', 'activo'),
+(6, 'alexis', '1991-12-15', 'mexicano', 'alexisduarte1512@gmail.com', 'alexisduarte1512@hotmail.com', '(998) 243-2827', '(019) 203-8263', 76, 'desarrollo', 'programador', 'visa', '8267sjdh2283', 'mexico', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 77560, '2018-10-31 00:19:45', '0000-00-00', 'activo');
 
 -- --------------------------------------------------------
 
@@ -217,10 +218,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-10-26 09:35:20', '2018-10-26 14:35:20'),
+(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-10-31 18:53:05', '2018-10-31 23:53:05'),
 (57, 'Juan Fernando Urrego', 'juan', '$2a$07$asxx54ahjppf45sd87a5auwRi.z6UsW7kVIpm0CUEuCpmsvT2sG6O', 'Administrador', 'vistas/img/usuarios/juan/461.jpg', 1, '2018-10-22 22:25:02', '2018-10-23 03:25:02'),
 (58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2017-12-21 12:07:39', '2017-12-21 17:07:39'),
-(63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 0, '0000-00-00 00:00:00', '2018-10-26 13:58:59');
+(63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 0, '0000-00-00 00:00:00', '2018-10-31 01:20:56');
 
 --
 -- Índices para tablas volcadas
@@ -270,13 +271,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

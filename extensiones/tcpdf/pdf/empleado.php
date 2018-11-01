@@ -11,16 +11,19 @@ public $codigo;
 public function traerImpresionEmpleado(){
 
 //TRAEMOS LA INFORMACIÓN DE LA VENTA
+date_default_timezone_set('America/Bogota');
 
 $itemEmpleado = "id";
 $valorEmpleado =  $this->codigo;
 
 $time = time();
+$hoy = date("F j, Y");  
 
-$fecha = date("d-m-Y", $time);
+$fecha =  $hoy;
 
 
 $respuesta = ControladorEmpleado::ctrMostrarEmpleado($itemEmpleado, $valorEmpleado);
+//var_dump($respuesta);
 
 
 //REQUERIMOS LA CLASE TCPDF
@@ -46,7 +49,7 @@ $bloque1 = <<<EOF
 			
 			<td style="width:150px"><img src="images/travelday.png"></td>
 
-			<td style="background-color:white; width:140px">
+			<td style="background-color:white; width:100px">
 				
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">
 				
@@ -59,7 +62,7 @@ $bloque1 = <<<EOF
 
 			</td>
 
-			<td style="background-color:white; width:140px">
+			<td style="background-color:white; width:120px">
 
 				<div style="font-size:8.5px; text-align:right; line-height:15px;">
 
@@ -73,7 +76,7 @@ $bloque1 = <<<EOF
 				
 			</td>
 
-			<td style="background-color:white; width:80px; text-align:center;"><br><br>Fecha:<br>$fecha</td>
+			<td style="background-color:white;text-align:right; width:120px;"><br><br>Fecha:<br>$fecha</td>
 
 		</tr>
 
@@ -113,29 +116,90 @@ $bloque3 = <<<EOF
 		
 		<tr>
 
-		<td style="width:220px">Nombre: $respuesta[nombre]</td>
+		<td style="width:540px">
+
+		<div style="font-size:10px; text-align:left; line-height:15px;">
+
+				<br>
+					<br>
+					Nombre: $respuesta[nombre]
+				
+					<br>
+					<br>
+					fecha de nacimiento: $respuesta[dob]
+					<br>
+					<br>
+				
+					Nacionalidad: $respuesta[nacionalidad]
+					<br>
+					<br>
+				
+					Email empresarial: $respuesta[email]
+					<br>
+					<br>
+				
+					Email personal: $respuesta[emailpersonal]
+					<br>
+					<br>
+				
+					Telefono: $respuesta[telefono]
+					<br>
+					<br>
+			
+					Telefono personal: $respuesta[telefono2]
+					<br>
+					<br>
+				
+					Extencion:  ($respuesta[extencion])
+					<br>
+					<br>
+					Area: $respuesta[area]
+					<br>
+					<br>
+					Puesto: $respuesta[puesto]
+					<br>
+					<br>
+					identificacion o DNI: $respuesta[dni]
+					<br>
+					<br>
+					Folio:    $respuesta[folio_dni]
+					<br>
+					<br>
+					Pais de residencia: $respuesta[pais]
+					<br>
+					<br>
+					Direccion:    $respuesta[direccion]
+					<br>
+					<br>
+					Codigo postal:    $respuesta[cp]
+					<br>
+					<br>
+					Ingreso a la empresa: $respuesta[fecha_alta]
+					<br>
+					<br>
+					Fecha de baja: $respuesta[fecha_baja]
+					<br>
+					<br>
+					Estatus: $respuesta[estatus]
+				</div>
+				
+		
+		
+		
+		</td>
 	
 		
-		<td style="width:220px">fecha de nacimiento: $respuesta[dob]</td>
+	
 		</tr>
 
 	</table>
-	<table style="font-size:10px; padding:5px 10px;">
-		
-		<tr>
-
-		<td style="width:220px">email: $respuesta[email]</td>
 	
-		
-		<td style="width:220px">telefono: $respuesta[telefono]</td>
-		</tr>
-
-	</table>
 
 	
 EOF;
 
 $pdf->writeHTML($bloque3, false, false, false, false, '');
+
 
 
 
