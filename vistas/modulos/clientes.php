@@ -10,7 +10,7 @@
 
     <ol class="breadcrumb">
       
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><a href="inicio"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
       
       <li class="active">Administrar clientes</li>
     
@@ -74,7 +74,7 @@
                     <td>
                       <div class="btn-group">
                           
-                        <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="far fa-edit"></i></button>
                         <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
                       </div>  
                     </td>

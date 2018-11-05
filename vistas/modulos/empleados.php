@@ -10,7 +10,7 @@
 
     <ol class="breadcrumb">
       
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><a href="inicio"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
       
       <li class="active">Administrar Empleados</li>
     
@@ -99,7 +99,7 @@
 
                        <button class="btn btn-info btnDetalles" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#mostarDetalles"><i class="fa fa-user-plus"></i></button>
                           
-                        <button class="btn btn-warning btnEditarEmpleado" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEmpleado"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarEmpleado" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEmpleado"><i class="far fa-edit"></i></button>
 
                       </div>  
 
@@ -691,14 +691,6 @@ MODAL EDITAR EMPLEADO
 
       </form>
 
-
-      <?php
-
-        $editarEmpleado = new ControladorEmpleado();
-        $editarEmpleado -> ctrEditarEmpleado();
-
-      ?> 
-
     </div>
 
   </div>
@@ -706,6 +698,12 @@ MODAL EDITAR EMPLEADO
 </div>
 
 
+<?php
+
+$editarEmpleado = new ControladorEmpleado();
+$editarEmpleado -> ctrEditarEmpleado();
+
+?> 
 
 
 

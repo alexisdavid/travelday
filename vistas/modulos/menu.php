@@ -49,16 +49,16 @@
 
 			</li>
 
-			<li>
+			<!-- <li>
 
 				<a href="productos">
 
-					<i class="fa fa-product-hunt"></i>
+					<i class="fab fa-product-hunt"></i>
 					<span>Productos</span>
 
 				</a>
 
-			</li>
+			</li> -->
 
 			<li>
 
@@ -68,6 +68,72 @@
 					<span>Clientes</span>
 
 				</a>
+
+			</li>
+
+			
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-industry"></i>
+					
+					<span>Proveedores</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+
+						<a href="barcos">
+							
+							<i class="fa fa-ship"></i>
+							<span>Barcos</span>
+
+						</a>
+
+					</li>
+
+					<li style="width: 100%">
+
+						<a href="crear-venta">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Hoteles</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="reportes">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Tours</span>
+
+						</a>
+
+					</li>
+					<li>
+
+						<a href="reportes">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>vuelos</span>
+
+						</a>
+
+					</li>
+
+				</ul>
 
 			</li>
 

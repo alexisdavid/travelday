@@ -10,7 +10,7 @@
 
     <ol class="breadcrumb">
       
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li><a href="inicio"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
       
       <li class="active">Administrar productos</li>
     
@@ -66,6 +66,7 @@
   </section>
 
 </div>
+
 
 <!--=====================================
 MODAL AGREGAR PRODUCTO
@@ -152,7 +153,7 @@ MODAL AGREGAR PRODUCTO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+                <span class="input-group-addon"><i class="fas fa-align-justify"></i></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
 
@@ -282,6 +283,7 @@ MODAL AGREGAR PRODUCTO
   </div>
 
 </div>
+
 
 <!--=====================================
 MODAL EDITAR PRODUCTO
