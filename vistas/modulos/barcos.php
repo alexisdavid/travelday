@@ -137,6 +137,52 @@ MODAL AGREGAR BARCO
 
           <div class="box-body">
 
+            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                  
+                  <option value="">Selecionar categoría</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                  foreach ($categorias as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL CÓDIGO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="nuevoCodigoBarco" name="nuevoCodigoBarco" placeholder="Ingresar código" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -145,7 +191,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fa fa-ship"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Nombre del barco" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombreBarco" placeholder="Nombre del barco" required>
 
               </div>
 
@@ -159,7 +205,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fa fa-industry"></i></span> 
 
-                <input type="number" min="0" class="form-control input-lg" name="nuevaCompania" placeholder="Compañia" required>
+                <input type="text" min="0" class="form-control input-lg" name="nuevaCompania" placeholder="Compañia" required>
 
               </div>
 
@@ -222,38 +268,6 @@ MODAL AGREGAR BARCO
 
             </div>
 
- <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
-
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
-                  
-                  <option value="">Selecionar categoría</option>
-
-                  <?php
-
-                  $item = null;
-                  $valor = null;
-
-                  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                  foreach ($categorias as $key => $value) {
-                    
-                    echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
-                  }
-
-                  ?>
-  
-                </select>
-
-              </div>
-
-            </div>
-
             <!-- ENTRADA PARA DESCRIPCION -->
             
             <div class="form-group">
@@ -262,7 +276,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fas fa-file-prescription"></i></span> 
 
-                <textarea class="form-control" id="message-text" name="nuevaDescripcion"></textarea>
+                <textarea class="form-control" id="nuevaDescripcion" name="nuevaDescripcion"></textarea>
 
               </div>
 
@@ -277,7 +291,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fas fa-tachometer-alt"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaVelocidad" placeholder="velocidad" required>
+                <input type="text" class="form-control input-lg" id="nuevaVelocidad" name="nuevaVelocidad" placeholder="velocidad" required>
 
               </div>
 
@@ -291,7 +305,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fas fa-ship"></i></span> 
 
-                <input type="number" class="form-control input-lg" name="nuevaCubiertas" placeholder="Cubiertas" required>
+                <input type="number" class="form-control input-lg" id="nuevaCubiertas" name="nuevaCubiertas" placeholder="Cubiertas" required>
 
               </div>
 
@@ -306,7 +320,7 @@ MODAL AGREGAR BARCO
                 
                 <span class="input-group-addon"><i class="fas fa-arrows-alt-h"></i></span>
 
-                <input type="number" class="form-control input-lg" name="nuevoLargo" placeholder="Largo" required>
+                <input type="number" class="form-control input-lg" id="nuevoLargo" name="nuevoLargo" placeholder="Largo" required>
 
               </div>
 
@@ -320,7 +334,7 @@ MODAL AGREGAR BARCO
               
                  <span class="input-group-addon"><i class="fas fa-arrows-alt"></i></span> 
 
-                <input type="number" class="form-control input-lg" name="nuevoAncho" placeholder="Ancho" required>
+                <input type="number" class="form-control input-lg" id="nuevoAncho" name="nuevoAncho" placeholder="Ancho" required>
 
               </div>
 
@@ -332,11 +346,11 @@ MODAL AGREGAR BARCO
               
               <div class="panel">SUBIR IMAGEN</div>
 
-              <input type="file" id="nuevaImagen" name="nuevaImagen">
+              <input type="file" class="nuevaImagenBarco" name="nuevaImagenBarco">
 
               <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="100px">
+              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
@@ -360,6 +374,14 @@ MODAL AGREGAR BARCO
       </form>
 
 
+    
+      <?php
+
+          $crearBarco = new ControladorBarcos();
+          $crearBarco -> ctrCrearBarco();
+
+        ?>  
+     
 
 
     </div>

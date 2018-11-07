@@ -166,6 +166,8 @@ CUERPO DOCUMENTO
 <script src="vistas/js/productos.js"></script>
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/empleados.js"></script>
+<!-- <script src="vistas/js/barco.js"></script> -->
+
 
 </body>
 </html>
