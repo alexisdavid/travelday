@@ -177,7 +177,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="nuevoCodigoBarco" name="nuevoCodigoBarco" placeholder="Ingresar código" required>
+                <input type="text" class="form-control input-lg" id="nuevoCodigoBarco" name="nuevoCodigoBarco" placeholder="Ingresar código" readonly required>
 
               </div>
 

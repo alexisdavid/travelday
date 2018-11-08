@@ -22,12 +22,12 @@ $("#nuevaCategoria").change(function(){
         if(!respuesta){
 
           var nuevoCodigo = idCategoria+"01";
-          $("#nuevoCodigo").val(nuevoCodigo);
+          $("#nuevoCodigoBarco").val(nuevoCodigo);
 
         }else{
 
           var nuevoCodigo = Number(respuesta["codigo"]) + 1;
-            $("#nuevoCodigo").val(nuevoCodigo);
+            $("#nuevoCodigoBarco").val(nuevoCodigo);
 
         }
                 

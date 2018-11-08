@@ -1,8 +1,8 @@
 
 <?php
 
-require_once "../controladores/productos.controlador.php";
-require_once "../modelos/productos.modelo.php";
+require_once "../controladores/barcos.controlador.php";
+require_once "../modelos/barcos.modelo.php";
 
 require_once "../controladores/categorias.controlador.php";
 require_once "../modelos/categorias.modelo.php";
@@ -19,7 +19,7 @@ class AjaxBarco{
   	$item = "id_categoria";
   	$valor = $this->idCategoria;
 
-  	$respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+  	$respuesta = ControladorBarcos::ctrMostrarBarcos($item, $valor);
 
   	echo json_encode($respuesta);
 

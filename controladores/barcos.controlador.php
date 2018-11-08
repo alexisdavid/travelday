@@ -2,6 +2,24 @@
 
 class ControladorBarcos{
 
+
+
+	/*=============================================
+	MOSTRAR PRODUCTOS
+	=============================================*/
+
+	static public function ctrMostrarBarcos($item, $valor){
+
+		$tabla = "productos";
+
+		$respuesta = ModeloBarcos::mdlMostrarBarcos($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
+
+
 	static public function ctrCrearBarco(){
 
 		if(isset($_POST["nuevoNombreBarco"])){
