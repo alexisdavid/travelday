@@ -13,6 +13,7 @@
       
       <li class="active">Administrar Barcos</li>
     
+
     </ol>
 
   </section>
@@ -32,7 +33,7 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas">
+       <table class="table table-bordered table-striped dt-responsive tablaBarcos">
          
         <thead>
          
@@ -54,47 +55,7 @@
 
         </thead>
 
-        <tbody>
-          
-          <tr>
-
-            <td>1</td>
-
-            <td>Juan Villegas</td>
-
-            <td>8161123</td>
-
-            <td>juan@hotmail.com</td>
-
-            <td>555 57 67</td>
-
-            <td>calle 27 # 40 - 36</td>
-
-            <td>1982-15-11</td>
-
-            <td>2017-12-11 12:05:32</td>
-
-            <td>35</td>
-
-            <td>2017-12-11 12:05:32</td>
-
-            <td>
-
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-              </div>  
-
-            </td>
-
-          </tr>
-
-          
-        </tbody>
-
+      
        </table>
 
       </div>
@@ -115,7 +76,7 @@ MODAL AGREGAR BARCO
 
     <div class="modal-content">
 
-      <form role="form" method="post">
+      <form role="form" method="post" enctype="multipart/form-data">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -164,20 +125,6 @@ MODAL AGREGAR BARCO
                   ?>
   
                 </select>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL CÓDIGO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
-
-                <input type="text" class="form-control input-lg" id="nuevoCodigoBarco" name="nuevoCodigoBarco" placeholder="Ingresar código" readonly required>
 
               </div>
 
@@ -340,7 +287,7 @@ MODAL AGREGAR BARCO
 
             </div>
 
-             <!-- ENTRADA PARA SUBIR FOTO -->
+            <!-- ENTRADA PARA SUBIR FOTO -->
 
              <div class="form-group">
               

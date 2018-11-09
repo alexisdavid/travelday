@@ -39,15 +39,14 @@ class ModeloBarcos{
 	}
 
 	/*=============================================
-	CREAR CATEGORIA
+	CREAR BARCO
 	=============================================*/
 
 	static public function mdlIngresarBarco($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idCategoria, codigo, nombre, compania, pasajeros, construccion, tonelaje, tripulacion, descripcion, velocidad, cubiertas, largo, ancho, imagen) VALUES (:idCategoria, :codigo, :nombre, :compania, :pasajeros, :construccion, :tonelaje, :tripulacion, :descripcion, :velocidad, :cubiertas, :largo, :ancho, :imagen)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idCategoria, nombre, compania, pasajeros, construccion, tonelaje, tripulacion, descripcion, velocidad, cubiertas, largo, ancho, imagen) VALUES (:idCategoria, :nombre, :compania, :pasajeros, :construccion, :tonelaje, :tripulacion, :descripcion, :velocidad, :cubiertas, :largo, :ancho, :imagen)");
 
 		$stmt->bindParam(":idCategoria", $datos["idCategoria"], PDO::PARAM_INT);
-		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":compania", $datos["compania"], PDO::PARAM_STR);
 		$stmt->bindParam(":pasajeros", $datos["pasajeros"], PDO::PARAM_INT);
