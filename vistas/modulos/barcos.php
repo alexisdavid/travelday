@@ -48,7 +48,7 @@
            <th>Velocidad</th>
            <th>Cubiertas</th> 
            <th>Largo</th>
-           <th>Ancho</th>
+           <th>codigo</th>
            <th>Acciones</th>
 
          </tr> 
@@ -106,7 +106,7 @@ MODAL AGREGAR BARCO
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                <select class="form-control input-lg" id="nuevaCategoriaBarco" name="nuevaCategoriaBarco" required>
                   
                   <option value="">Selecionar categoría</option>
 
@@ -129,6 +129,19 @@ MODAL AGREGAR BARCO
               </div>
 
             </div>
+              <!-- ENTRADA PARA EL CÓDIGO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="nuevoCodigoBarco" name="nuevoCodigoBarco" placeholder="Ingresar código" readonly required>
+
+              </div>
+
+            </div>
 
             <!-- ENTRADA PARA EL NOMBRE -->
             
@@ -139,6 +152,7 @@ MODAL AGREGAR BARCO
                 <span class="input-group-addon"><i class="fa fa-ship"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoNombreBarco" placeholder="Nombre del barco" required>
+                
 
               </div>
 
@@ -560,7 +574,7 @@ MODAL EDITAR BARCO
               
               <div class="panel">SUBIR IMAGEN</div>
 
-              <input type="file" class="nuevaImagenBarco" id="nuevaImagenBarco" name="editarImagenBarco">
+              <input type="file" class="nuevaImagen" id="nuevaImagen" name="editarImagen">
 
               <p class="help-block">Peso máximo de la imagen 2MB</p>
 

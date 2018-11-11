@@ -45,7 +45,7 @@ class ModeloBarcos{
 
 	static public function mdlIngresarBarco($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idCategoria, nombre, compania, pasajeros, construccion, tonelaje, tripulacion, descripcion, velocidad, cubiertas, largo, ancho, imagen) VALUES (:idCategoria, :nombre, :compania, :pasajeros, :construccion, :tonelaje, :tripulacion, :descripcion, :velocidad, :cubiertas, :largo, :ancho, :imagen)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idCategoria, nombre, compania, pasajeros, construccion, tonelaje, tripulacion, descripcion, velocidad, cubiertas, largo, ancho, imagen, codigo) VALUES (:idCategoria, :nombre, :compania, :pasajeros, :construccion, :tonelaje, :tripulacion, :descripcion, :velocidad, :cubiertas, :largo, :ancho, :imagen, :codigo)");
 
 		$stmt->bindParam(":idCategoria", $datos["idCategoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -60,6 +60,7 @@ class ModeloBarcos{
 		$stmt->bindParam(":largo", $datos["largo"], PDO::PARAM_INT);
 		$stmt->bindParam(":ancho", $datos["ancho"], PDO::PARAM_INT);
 		$stmt->bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
+		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

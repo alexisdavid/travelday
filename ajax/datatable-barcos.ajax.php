@@ -19,6 +19,7 @@ class TablaBarco{
     	$valor = null;
 
   		$barco = ControladorBarcos::ctrMostrarBarcos($item, $valor);	
+  	
 		
   		$datosJson = '{
 		  "data": [';
@@ -58,7 +59,7 @@ class TablaBarco{
 			      "'.$barco[$i]["velocidad"].'",
 			      "'.$barco[$i]["cubiertas"].'",
 			      "'.$barco[$i]["largo"].'",
-			      "'.$barco[$i]["ancho"].'",
+			      "'.$barco[$i]["codigo"].'",
 			      "'.$botones.'"
 			    ],';
 

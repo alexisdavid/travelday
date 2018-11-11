@@ -7,13 +7,18 @@ class AjaxBarco{
 
 
 
+
    /*=============================================
   GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
   =============================================*/
   public $idCategoria;
+
   public function ajaxCrearCodigoBarco(){
-    $item = "id_categoria";
+
+    $item = "idCategoria";
+
     $valor = $this->idCategoria;
+
     $respuesta = ControladorBarcos::ctrMostrarBarcos($item, $valor);
     echo json_encode($respuesta);
   }

@@ -1,3 +1,4 @@
+
 $('.tablaBarcos').DataTable( {
     "ajax": "ajax/datatable-barcos.ajax.php",
     "deferRender": true,
@@ -31,7 +32,45 @@ $('.tablaBarcos').DataTable( {
   }
 
 } );
+/*=============================================
+CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
+=============================================*/
+$("#nuevaCategoriaBarco").change(function(){
 
+  var idCategoria = $(this).val();
+
+  var datos = new FormData();
+    datos.append("idCategoria", idCategoria);
+
+    $.ajax({
+
+      url:"ajax/barcos.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+        console.log(respuesta);
+
+        if(!respuesta){
+
+          var nuevoCodigo = idCategoria+"01";
+          $("#nuevoCodigoBarco").val(nuevoCodigo);
+
+        }else{
+
+          var nuevoCodigo = Number(respuesta["codigo"]) + 1;
+            $("#nuevoCodigoBarco").val(nuevoCodigo);
+
+        }
+                
+      }
+
+    })
+
+})
 
 /*=============================================
 SUBIENDO LA FOTO DEL CRUCERO

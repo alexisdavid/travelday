@@ -102,7 +102,7 @@ class ControladorBarcos{
 
 				$tabla = "barcos";
 
-				$datos = array("idCategoria" => $_POST["nuevaCategoria"],
+				$datos = array("idCategoria" => $_POST["nuevaCategoriaBarco"],
 							   "nombre" => $_POST["nuevoNombreBarco"],
 							   "compania" => $_POST["nuevaCompania"],
 							   "pasajeros" => $_POST["nuevosPasajeros"],
@@ -114,6 +114,7 @@ class ControladorBarcos{
 							   "cubiertas" => $_POST["nuevaCubiertas"],
 							   "largo" => $_POST["nuevoLargo"],
 							   "ancho" => $_POST["nuevoAncho"],
+							   "codigo" => $_POST["nuevoCodigoBarco"],
 							   "imagen" => $ruta);
 
 				$respuesta = ModeloBarcos::mdlIngresarBarco($tabla, $datos);
@@ -180,11 +181,11 @@ class ControladorBarcos{
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = $_POST["imagenActual"];
+			   $ruta = $_POST["imagenActual"];
 
-			   	if(isset($_FILES["editarImagenBarco"]["tmp_name"]) && !empty($_FILES["editarImagenBarco"]["tmp_name"])){
+				if(isset($_FILES["editarImagen"]["tmp_name"]) && !empty($_FILES["editarImagen"]["tmp_name"])){
 
-					list($ancho, $alto) = getimagesize($_FILES["editarImagenBarco"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize($_FILES["editarImagen"]["tmp_name"]);
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -199,21 +200,21 @@ class ControladorBarcos{
 					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
 					=============================================*/
 
-					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png"){
+					if(!empty($_POST["imagenActual"])){
 
 						unlink($_POST["imagenActual"]);
 
 					}else{
 
-						mkdir($directorio, 0755);	
-					
-					}
-					
+						mkdir($directorio, 0755);
+
+					}	
+
 					/*=============================================
 					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 					=============================================*/
 
-					if($_FILES["editarImagenBarco"]["type"] == "image/jpeg"){
+					if($_FILES["editarFoto"]["type"] == "image/jpeg"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -221,9 +222,9 @@ class ControladorBarcos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["editarNombreBarco"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/usuar/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
 
-						$origen = imagecreatefromjpeg($_FILES["editarImagenBarco"]["tmp_name"]);						
+						$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -233,7 +234,7 @@ class ControladorBarcos{
 
 					}
 
-					if($_FILES["editarImagenBarco"]["type"] == "image/png"){
+					if($_FILES["editarFoto"]["type"] == "image/png"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -241,9 +242,9 @@ class ControladorBarcos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["editarNombreBarco"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".png";
 
-						$origen = imagecreatefrompng($_FILES["editarImagenBarco"]["tmp_name"]);						
+						$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -254,6 +255,7 @@ class ControladorBarcos{
 					}
 
 				}
+
 				$tabla = "barcos";
 
 				$datos = array("id"=>$_POST["idBarco"],
