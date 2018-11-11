@@ -163,4 +163,160 @@ class ControladorBarcos{
 
 	}
 
+
+	/*=============================================
+	EDITAR BARCO
+	=============================================*/
+
+	static public function ctrEditarBarco(){
+
+		if(isset($_POST["editarNombreBarco"])){
+
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"]) &&
+			preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreBarco"]) &&
+			preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCompania"])){
+
+		   		/*=============================================
+				VALIDAR IMAGEN
+				=============================================*/
+
+			   	$ruta = $_POST["imagenActual"];
+
+			   	if(isset($_FILES["editarImagenBarco"]["tmp_name"]) && !empty($_FILES["editarImagenBarco"]["tmp_name"])){
+
+					list($ancho, $alto) = getimagesize($_FILES["editarImagenBarco"]["tmp_name"]);
+
+					$nuevoAncho = 500;
+					$nuevoAlto = 500;
+
+					/*=============================================
+					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+					=============================================*/
+
+					$directorio = "vistas/img/productos/".$_POST["editarNombreBarco"];
+
+					/*=============================================
+					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
+					=============================================*/
+
+					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png"){
+
+						unlink($_POST["imagenActual"]);
+
+					}else{
+
+						mkdir($directorio, 0755);	
+					
+					}
+					
+					/*=============================================
+					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+					=============================================*/
+
+					if($_FILES["editarImagenBarco"]["type"] == "image/jpeg"){
+
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$aleatorio = mt_rand(100,999);
+
+						$ruta = "vistas/img/productos/".$_POST["editarNombreBarco"]."/".$aleatorio.".jpg";
+
+						$origen = imagecreatefromjpeg($_FILES["editarImagenBarco"]["tmp_name"]);						
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagejpeg($destino, $ruta);
+
+					}
+
+					if($_FILES["editarImagenBarco"]["type"] == "image/png"){
+
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$aleatorio = mt_rand(100,999);
+
+						$ruta = "vistas/img/productos/".$_POST["editarNombreBarco"]."/".$aleatorio.".png";
+
+						$origen = imagecreatefrompng($_FILES["editarImagenBarco"]["tmp_name"]);						
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagepng($destino, $ruta);
+
+					}
+
+				}
+				$tabla = "barcos";
+
+				$datos = array("id"=>$_POST["idBarco"],
+								"idCategoria" => $_POST["editarCategoriaBarco"],
+							   "nombre" => $_POST["editarNombreBarco"],
+							   "compania" => $_POST["editarCompania"],
+							   "pasajeros" => $_POST["editarPasajeros"],
+							   "construccion" => $_POST["editarConstruccion"],
+							   "tonelaje" => $_POST["editarTonelaje"],
+							   "tripulacion" => $_POST["editarTripulacion"],
+							   "descripcion" => $_POST["editarDescripcion"],
+							   "velocidad" => $_POST["editarVelocidad"],
+							   "cubiertas" => $_POST["editarCubiertas"],
+							   "largo" => $_POST["editarLargo"],
+							   "ancho" => $_POST["editarAncho"],
+							   "imagen" => $ruta);
+
+				$respuesta = ModeloBarcos::mdlEditarBarco($tabla, $datos);
+
+				if($respuesta == "ok"){
+
+					echo'<script>
+
+						swal({
+							  type: "success",
+							  title: "El barco ha sido editado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+
+										window.location = "barcos";
+
+										}
+									})
+
+						</script>';
+
+				}
+
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "¡El barco no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "barcos";
+
+							}
+						})
+
+			  	</script>';
+			}
+		}
+
+	}
+
+
 }

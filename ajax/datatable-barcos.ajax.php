@@ -46,7 +46,7 @@ class TablaBarco{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$barco[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-edit'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$barco[$i]["id"]."' imagen='".$barco[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
+		  	$botones =  "<div class='btn-group'><button class='btn btn-info btnDetallesBarco' idBarco='".$barco[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-calendar-plus'></i></button><button class='btn btn-warning btnEditarBarco' idBarco='".$barco[$i]["id"]."' data-toggle='modal' data-target='#modalEditarBarco'><i class='far fa-edit'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$barco[$i]["id"]."' imagen='".$barco[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
 
 		  	$datosJson .='[
 			      "'.($i+1).'",
@@ -54,7 +54,7 @@ class TablaBarco{
 			      "'.$barco[$i]["nombre"].'",
 			      "'.$barco[$i]["compania"].'",
 			      "'.$barco[$i]["tripulacion"].'",
-			      "'.$categorias["categoria"].'",
+			      "'.$barco[$i]["descripcion"].'",
 			      "'.$barco[$i]["velocidad"].'",
 			      "'.$barco[$i]["cubiertas"].'",
 			      "'.$barco[$i]["largo"].'",

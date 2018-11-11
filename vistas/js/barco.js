@@ -83,3 +83,93 @@ $(".nuevaImagenBarco").change(function(){
 
     }
 })
+
+/*=============================================
+IMPRIMIR DATOS DE BARCO
+=============================================*/
+
+$(".tablaBarcos").on("click", ".btnDetallesBarco", function(){
+
+  var idBarco = $(this).attr("idBarco");
+
+  console.log(idBarco);
+
+  window.open("extensiones/tcpdf/pdf/crucero.php?id="+idBarco, "_blank");
+
+})
+
+
+/*=============================================
+EDITAR BARCO
+=============================================*/
+
+$(".tablaBarcos tbody").on("click", "button.btnEditarBarco", function(){
+
+  var idBarco = $(this).attr("idBarco");
+  console.log(idBarco);
+  
+  var datos = new FormData();
+    datos.append("idBarco", idBarco);
+
+     $.ajax({
+
+      url:"ajax/barcos.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+          console.log(respuesta);
+
+          var datosCategoria = new FormData();
+          datosCategoria.append("idCategoria",respuesta["idCategoria"]);
+
+           $.ajax({
+
+              url:"ajax/categorias.ajax.php",
+              method: "POST",
+              data: datosCategoria,
+              cache: false,
+              contentType: false,
+              processData: false,
+              dataType:"json",
+              success:function(respuesta){
+                console.log(respuesta);
+                  
+                  $("#editarCategoriaBarco").val(respuesta["id"]);
+                  $("#editarCategoriaBarco").html(respuesta["categoria"]);
+
+              }
+
+          })
+
+           $("#editarNombreBarco").val(respuesta["nombre"]);
+           $("#idBarco").val(respuesta["id"]);
+           $("#editarDescripcion").val(respuesta["descripcion"]);
+           $('#editarCompania').val(respuesta["compania"]);
+            $('#editarPasajeros').val(respuesta["pasajeros"]);
+             $('#editarConstruccion').val(respuesta["construccion"]);
+              $('#editarTonelaje').val(respuesta["tonelaje"]);
+               $('#editarTripulacion').val(respuesta["tripulacion"]);
+                $('#editarVelocidad').val(respuesta["velocidad"]);
+              $('#editarCubiertas').val(respuesta["cubiertas"]);
+              $('#editarLargo').val(respuesta["largo"]);
+               $('#editarAncho').val(respuesta["ancho"]);
+
+           if(respuesta["imagen"] != ""){
+
+            $("#imagenActual").val(respuesta["imagen"]);
+
+            $(".previsualizar").attr("src",  respuesta["imagen"]);
+
+           }
+          
+        
+
+      }
+
+  })
+
+})
