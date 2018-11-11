@@ -64,7 +64,7 @@ class ControladorBarcos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["nuevoNombreBarco"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/productos/".$_POST["nuevoCodigoBarco"]."/".$aleatorio.".jpg";
 
 						$origen = imagecreatefromjpeg($_FILES["nuevaImagenBarco"]["tmp_name"]);						
 
@@ -84,7 +84,7 @@ class ControladorBarcos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["nuevoNombreBarco"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/productos/".$_POST["nuevoCodigoBarco"]."/".$aleatorio.".png";
 
 						$origen = imagecreatefrompng($_FILES["nuevaImagenBarco"]["tmp_name"]);						
 
