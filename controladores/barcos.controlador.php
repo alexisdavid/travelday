@@ -48,7 +48,7 @@ class ControladorBarcos{
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-					$directorio = "vistas/img/productos/".$_POST["nuevoNombreBarco"];
+					$directorio = "vistas/img/productos/".$_POST["nuevoCodigoBarco"];
 
 					mkdir($directorio, 0755);
 

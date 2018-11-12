@@ -307,7 +307,7 @@ MODAL AGREGAR BARCO
               
               <div class="panel">SUBIR IMAGEN</div>
 
-              <input type="file" class="nuevaImagenBarco" name="nuevaImagenBarco">
+              <input type="file" class="nuevaImagenBarco" id="nuevaImagenBarco" name="nuevaImagenBarco">
 
               <p class="help-block">Peso máximo de la imagen 2MB</p>
 
