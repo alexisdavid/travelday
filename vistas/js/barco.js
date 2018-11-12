@@ -185,6 +185,7 @@ $(".tablaBarcos tbody").on("click", "button.btnEditarBarco", function(){
           })
 
            $("#editarNombreBarco").val(respuesta["nombre"]);
+            $('#editarCodigoBarco').val(respuesta["codigo"]);
            $("#idBarco").val(respuesta["id"]);
            $("#editarDescripcion").val(respuesta["descripcion"]);
            $('#editarCompania').val(respuesta["compania"]);

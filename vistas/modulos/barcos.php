@@ -410,6 +410,20 @@ MODAL EDITAR BARCO
 
             </div>
 
+               <!-- ENTRADA PARA EL CÓDIGO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="editarCodigoBarco" class="editarCodigoBarco" name="editarCodigoBarco" placeholder="Ingresar código" readonly required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -568,21 +582,21 @@ MODAL EDITAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
+ <!-- ENTRADA PARA SUBIR FOTO -->
 
              <div class="form-group">
               
               <div class="panel">SUBIR IMAGEN</div>
 
-              <input type="file" class="nuevaImagen" id="nuevaImagen" name="editarImagen">
+              <input type="file" class="nuevaImagenBarco" id="nuevaImagenBarco" name="nuevaImagenBarco">
 
               <p class="help-block">Peso máximo de la imagen 2MB</p>
 
               <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
-
                <input type="hidden" name="imagenActual" id="imagenActual">
-            </div>
 
+
+            </div>
   
           </div>
 

@@ -82,9 +82,9 @@ class ModeloBarcos{
 
 	static public function mdlEditarBarco($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET idCategoria = :idCategoria, nombre= :nombre, compania= :compania, pasajeros= :pasajeros, construccion = :construccion, tonelaje = :tonelaje, tripulacion =  :tripulacion, descripcion = :descripcion, velocidad = :velocidad, cubiertas=  :cubiertas, largo = :largo, ancho =  :ancho, imagen = :imagen  WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET idCategoria = :idCategoria, nombre= :nombre, compania= :compania, pasajeros= :pasajeros, construccion = :construccion, tonelaje = :tonelaje, tripulacion =  :tripulacion, descripcion = :descripcion, velocidad = :velocidad, cubiertas=  :cubiertas, largo = :largo, ancho =  :ancho, imagen = :imagen WHERE codigo = :codigo");
 
-		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+		
 		$stmt->bindParam(":idCategoria", $datos["idCategoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":compania", $datos["compania"], PDO::PARAM_STR);
@@ -98,6 +98,7 @@ class ModeloBarcos{
 		$stmt->bindParam(":largo", $datos["largo"], PDO::PARAM_INT);
 		$stmt->bindParam(":ancho", $datos["ancho"], PDO::PARAM_INT);
 		$stmt->bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
+		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

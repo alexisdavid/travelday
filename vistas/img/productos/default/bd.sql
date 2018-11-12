@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-11-2018 a las 23:32:25
+-- Tiempo de generación: 12-11-2018 a las 05:40:33
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -21,6 +21,40 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `travelday_admin`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `barcos`
+--
+
+CREATE TABLE `barcos` (
+  `id` int(11) NOT NULL,
+  `idCategoria` int(11) NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `compania` text COLLATE utf8_spanish_ci NOT NULL,
+  `pasajeros` int(11) NOT NULL,
+  `construccion` bigint(11) NOT NULL,
+  `tonelaje` bigint(11) NOT NULL,
+  `tripulacion` bigint(11) NOT NULL,
+  `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
+  `velocidad` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
+  `cubiertas` int(11) NOT NULL,
+  `largo` int(11) NOT NULL,
+  `ancho` int(11) NOT NULL,
+  `imagen` text COLLATE utf8_spanish_ci NOT NULL,
+  `codigo` text COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `barcos`
+--
+
+INSERT INTO `barcos` (`id`, `idCategoria`, `nombre`, `compania`, `pasajeros`, `construccion`, `tonelaje`, `tripulacion`, `descripcion`, `velocidad`, `cubiertas`, `largo`, `ancho`, `imagen`, `codigo`) VALUES
+(1, 1, 'ses', '2', 2, 2, 2, 2, '2', '2', 2, 2, 2, 'vistas/img/productos/default/anonymous.png', '101'),
+(2, 1, 'barcoprueba', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/102/993.jpg', '102'),
+(3, 1, 'segunda prueba', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/103/997.jpg', '103'),
+(6, 1, 'as', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/104/287.jpg', '104');
 
 -- --------------------------------------------------------
 
@@ -217,7 +251,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-11-11 16:25:26', '2018-11-11 21:25:26'),
+(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-11-11 21:46:02', '2018-11-12 02:46:02'),
 (57, 'Juan Fernando Urrego', 'juan', '$2a$07$asxx54ahjppf45sd87a5auwRi.z6UsW7kVIpm0CUEuCpmsvT2sG6O', 'Administrador', 'vistas/img/usuarios/juan/461.jpg', 1, '2018-10-22 22:25:02', '2018-10-23 03:25:02'),
 (58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2017-12-21 12:07:39', '2017-12-21 17:07:39'),
 (63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 0, '0000-00-00 00:00:00', '2018-11-07 01:26:02');
@@ -225,6 +259,12 @@ INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`,
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `barcos`
+--
+ALTER TABLE `barcos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `categorias`
@@ -259,6 +299,12 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `barcos`
+--
+ALTER TABLE `barcos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
