@@ -633,5 +633,10 @@ MODAL EDITAR BARCO
 
 </div>
 
+<?php
 
+  $eliminarBarco = new ControladorBarcos();
+  $eliminarBarco -> ctrEliminarBarco();
+
+?>  
 

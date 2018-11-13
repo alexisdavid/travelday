@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -77,7 +78,7 @@ class ModeloBarcos{
 
 	}
 		/*=============================================
-	CREAR BARCO
+	EDITAR BARCO
 	=============================================*/
 
 	static public function mdlEditarBarco($tabla, $datos){
@@ -114,5 +115,32 @@ class ModeloBarcos{
 		$stmt = null;
 
 	}
+
+	/*=============================================
+	BORRAR BARCO
+	=============================================*/
+
+	static public function mdlEliminarBarco($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+
+		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 
 }

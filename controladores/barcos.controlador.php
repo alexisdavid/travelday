@@ -321,6 +321,49 @@ class ControladorBarcos{
 		}
 
 	}
+	/*=============================================
+	BORRAR BARCO
+	=============================================*/
+	static public function ctrEliminarBarco(){
+
+		if(isset($_GET["idBarco"])){
+
+			$tabla ="barcos";
+			$datos = $_GET["idBarco"];
+
+			if($_GET["imagen"] != "" && $_GET["imagen"] != "vistas/img/productos/default/anonymous.png"){
+
+				unlink($_GET["imagen"]);
+				rmdir('vistas/img/productos/'.$_GET["codigo"]);
+
+			}
+
+			$respuesta = ModeloBarcos::mdlEliminarBarco($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El Barco ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "barcos";
+
+								}
+							})
+
+				</script>';
+
+			}		
+		}
+
+
+	}
 
 
 
