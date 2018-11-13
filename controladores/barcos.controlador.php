@@ -3,9 +3,8 @@
 class ControladorBarcos{
 
 
-
 	/*=============================================
-	MOSTRAR PRODUCTOS
+	MOSTRAR BARCOS
 	=============================================*/
 
 	static public function ctrMostrarBarcos($item, $valor){
@@ -19,6 +18,9 @@ class ControladorBarcos{
 	}
 
 
+	/*=============================================
+	CREAR BARCOS
+	=============================================*/
 
 	static public function ctrCrearBarco(){
 
@@ -164,30 +166,35 @@ class ControladorBarcos{
 
 	}
 
-	/*=============================================
-	EDITAR BARCO
 
+	/*=============================================
+	EDITARBARCOS
 	=============================================*/
 
 	static public function ctrEditarBarco(){
 
-			if(isset($_POST["editarNombreBarco"])){
+		if(isset($_POST["editarNombreBarco"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"]) &&
-			preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreBarco"]) &&
-			preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCompania"])){
-				/*=============================================
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreBarco"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCompania"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"])){
+
+		   		/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
-				$ruta = $_POST["imagenActual"];
+			   	$ruta = $_POST["imagenActual"];
 
-				if(isset($_FILES["nuevaImagenBarco"]["tmp_name"]) && !empty($_FILES["nuevaImagenBarco"]["tmp_name"])){
+			   	if(isset($_FILES["nuevaImagenBarco"]["tmp_name"]) && !empty($_FILES["nuevaImagenBarco"]["tmp_name"])){
 
 					list($ancho, $alto) = getimagesize($_FILES["nuevaImagenBarco"]["tmp_name"]);
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
+
+					/*=============================================
+					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+					=============================================*/
 
 					$directorio = "vistas/img/productos/".$_POST["editarCodigoBarco"];
 
@@ -204,7 +211,7 @@ class ControladorBarcos{
 						mkdir($directorio, 0755);	
 					
 					}
-
+					
 					/*=============================================
 					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 					=============================================*/
@@ -239,7 +246,7 @@ class ControladorBarcos{
 
 						$ruta = "vistas/img/productos/".$_POST["editarCodigoBarco"]."/".$aleatorio.".png";
 
-						$origen = imagecreatefrompng($_FILES["editarImagenBarco"]["tmp_name"]);						
+						$origen = imagecreatefrompng($_FILES["nuevaImagenBarco"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -270,25 +277,24 @@ class ControladorBarcos{
 
 				$respuesta = ModeloBarcos::mdlEditarBarco($tabla, $datos);
 
-
 				if($respuesta == "ok"){
 
 					echo'<script>
 
-					swal({
-						  type: "success",
-						  title: "El barco ha sido editado correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
-									if (result.value) {
+						swal({
+							  type: "success",
+							  title: "El barco ha sido editado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
 
-									window.location = "barcos";
+										window.location = "barcos";
 
-									}
-								})
+										}
+									})
 
-					</script>';
+						</script>';
 
 				}
 
@@ -299,7 +305,7 @@ class ControladorBarcos{
 
 					swal({
 						  type: "error",
-						  title: "¡El barco no puede ir vacío o llevar caracteres especiales!",
+						  title: "¡El barco no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -311,12 +317,13 @@ class ControladorBarcos{
 						})
 
 			  	</script>';
-
 			}
-
 		}
 
 	}
 
 
+
 }
+
+
