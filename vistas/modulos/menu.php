@@ -103,7 +103,7 @@
 
 					<li style="width: 100%">
 
-						<a href="crear-venta">
+						<a href="#">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Hoteles</span>
@@ -114,7 +114,7 @@
 
 					<li>
 
-						<a href="reportes">
+						<a href="#">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Tours</span>
@@ -124,7 +124,7 @@
 					</li>
 					<li>
 
-						<a href="reportes">
+						<a href="#">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>vuelos</span>
@@ -157,7 +157,7 @@
 					
 					<li>
 
-						<a href="ventas">
+						<a href="#">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Administrar Reservacion</span>
@@ -168,7 +168,7 @@
 
 					<li style="width: 100%">
 
-						<a href="crear-venta">
+						<a href="#">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Crear Reservacion</span>
@@ -179,7 +179,7 @@
 
 					<li>
 
-						<a href="reportes">
+						<a href="#">
 							
 							<i class="fa fa-circle-o"></i>
 							<span>Reporte de ventas</span>

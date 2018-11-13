@@ -1,4 +1,3 @@
-
 $('.tablaBarcos').DataTable( {
     "ajax": "ajax/datatable-barcos.ajax.php",
     "deferRender": true,
@@ -52,7 +51,7 @@ $("#nuevaCategoriaBarco").change(function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
-        console.log(respuesta);
+        // console.log(respuesta);
 
         if(!respuesta){
 
@@ -124,14 +123,13 @@ $(".nuevaImagenBarco").change(function(){
 })
 
 /*=============================================
-IMPRIMIR DATOS DE BARCO
+IMPRIMIR DATOS EMPLEADOS
 =============================================*/
 
 $(".tablaBarcos").on("click", ".btnDetallesBarco", function(){
 
   var idBarco = $(this).attr("idBarco");
-
-  console.log(idBarco);
+   console.log(idBarco);
 
   window.open("extensiones/tcpdf/pdf/crucero.php?id="+idBarco, "_blank");
 
@@ -145,7 +143,7 @@ EDITAR BARCO
 $(".tablaBarcos tbody").on("click", "button.btnEditarBarco", function(){
 
   var idBarco = $(this).attr("idBarco");
-  console.log(idBarco);
+  // console.log(idBarco);
   
   var datos = new FormData();
     datos.append("idBarco", idBarco);
@@ -160,7 +158,7 @@ $(".tablaBarcos tbody").on("click", "button.btnEditarBarco", function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
-          console.log(respuesta);
+          // console.log(respuesta);
 
           var datosCategoria = new FormData();
           datosCategoria.append("idCategoria",respuesta["idCategoria"]);
@@ -175,7 +173,7 @@ $(".tablaBarcos tbody").on("click", "button.btnEditarBarco", function(){
               processData: false,
               dataType:"json",
               success:function(respuesta){
-                console.log(respuesta);
+                // console.log(respuesta);
                   
                   $("#editarCategoriaBarco").val(respuesta["id"]);
                   $("#editarCategoriaBarco").html(respuesta["categoria"]);
