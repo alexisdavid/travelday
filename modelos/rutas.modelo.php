@@ -73,10 +73,4 @@ class ModeloRutas{
 
 	}
 
-
-
-
-
-
-
 }

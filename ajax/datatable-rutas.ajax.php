@@ -48,7 +48,7 @@ class TablaRutas{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-info btnDetallesBarco' idBarco='".$ruta[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-calendar-plus'></i></button><button class='btn btn-warning btnEditarBarco' idBarco='".$ruta[$i]["id"]."' data-toggle='modal' data-target='#modalEditarBarco'><i class='far fa-edit'></i></button><button class='btn btn-danger btnEliminarBarco' idBarco='".$ruta[$i]["id"]."' codigo='".$ruta[$i]["codigo"]."' imagen='".$ruta[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
+		  	$botones =  "<div class='btn-group'><button class='btn btn-info btnDetallesRuta' idRuta='".$ruta[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-calendar-plus'></i></button><button class='btn btn-warning btnEditarRuta' idRuta='".$ruta[$i]["id"]."' data-toggle='modal' data-target='#modalEditarRuta'><i class='far fa-edit'></i></button><button class='btn btn-danger btnEliminarRuta' idRuta='".$ruta[$i]["id"]."' codigo='".$ruta[$i]["codigo"]."' imagen='".$ruta[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
 
 		  	$datosJson .='[
 			      "'.($i+1).'",

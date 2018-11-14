@@ -124,3 +124,16 @@ $(".nuevaImagenRuta").change(function(){
 
     }
 })
+
+/*=============================================
+IMPRIMIR DATOS EMPLEADOS
+=============================================*/
+
+$(".tablaRutas").on("click", ".btnDetallesRuta", function(){
+
+  var idRuta = $(this).attr("idRuta");
+   console.log(idRuta);
+
+  window.open("extensiones/tcpdf/pdf/ruta.php?idRuta="+idRuta, "_blank");
+
+})
