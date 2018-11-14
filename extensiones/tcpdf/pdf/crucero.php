@@ -75,6 +75,7 @@ $bloque3 = <<<EOF
 		<tr>
 			
 			<td style="width:150px"><img src="../../../$respuesta[imagen]"></td>
+			
 		
 		</tr>
 	</table>

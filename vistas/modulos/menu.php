@@ -49,16 +49,7 @@
 
 			</li>
 
-			<!-- <li>
-
-				<a href="productos">
-
-					<i class="fab fa-product-hunt"></i>
-					<span>Productos</span>
-
-				</a>
-
-			</li> -->
+			
 
 			<li>
 
@@ -103,10 +94,10 @@
 
 					<li style="width: 100%">
 
-						<a href="#">
+						<a href="rutas">
 							
-							<i class="fa fa-circle-o"></i>
-							<span>Hoteles</span>
+							<i class="fas fa-route"></i>
+							<span>Rutas cruceros</span>
 
 						</a>
 
