@@ -73,4 +73,69 @@ class ModeloRutas{
 
 	}
 
+	/*=============================================
+	EDITAR RUTA
+	=============================================*/
+
+	static public function mdlEditarRutas($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET idCategoria = :idCategoria, descripcion= :descripcion, noches= :noches, puertos = :puertos, embarque = :embarque, desembarque =  :desembarque, html = :html, imagen = :imagen WHERE codigo = :codigo");
+
+		
+		$stmt->bindParam(":idCategoria", $datos["idCategoria"], PDO::PARAM_INT);
+		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_INT);
+		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":noches", $datos["noches"], PDO::PARAM_INT);
+		$stmt->bindParam(":puertos", $datos["puertos"], PDO::PARAM_INT);
+		$stmt->bindParam(":embarque", $datos["embarque"], PDO::PARAM_STR);
+		$stmt->bindParam(":desembarque", $datos["desembarque"], PDO::PARAM_STR);
+		$stmt->bindParam(":html", $datos["html"], PDO::PARAM_STR);
+		$stmt->bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
+		
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+
+	/*=============================================
+	BORRAR RUTA
+	=============================================*/
+
+	static public function mdlEliminarRuta($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+
+		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+
+
+
 }

@@ -137,3 +137,108 @@ $(".tablaRutas").on("click", ".btnDetallesRuta", function(){
   window.open("extensiones/tcpdf/pdf/ruta.php?idRuta="+idRuta, "_blank");
 
 })
+
+/*=============================================
+EDITAR BARCO
+=============================================*/
+
+$(".tablaRutas tbody").on("click", "button.btnEditarRuta", function(){
+
+  var idRuta = $(this).attr("idRuta");
+  // console.log(idRuta);
+  
+  var datos = new FormData();
+    datos.append("idRuta", idRuta);
+
+     $.ajax({
+
+      url:"ajax/rutas.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+          console.log(respuesta);
+
+          var datosCategoria = new FormData();
+          datosCategoria.append("idCategoria",respuesta["idCategoria"]);
+
+           $.ajax({
+
+              url:"ajax/categorias.ajax.php",
+              method: "POST",
+              data: datosCategoria,
+              cache: false,
+              contentType: false,
+              processData: false,
+              dataType:"json",
+              success:function(respuesta){
+                console.log(respuesta);
+                  
+                  $("#editarCategoriaRuta").val(respuesta["id"]);
+                  $("#editarCategoriaRuta").html(respuesta["categoria"]);
+
+              }
+
+          })
+
+         
+            $('#editarCodigoRuta').val(respuesta["codigo"]);
+            $("#editarDescripcion").val(respuesta["descripcion"]);
+            $('#editarNoches').val(respuesta["noches"]);
+           $('#editarPuertos').val(respuesta["puertos"]);
+           $('#editarEmbarque').val(respuesta["embarque"]);
+           $('#editarDesembaque').val(respuesta["desembarque"]);
+          $('#editarHtml').val(respuesta["html"]);
+         
+
+           if(respuesta["imagen"] != ""){
+
+            $("#imagenActual").val(respuesta["imagen"]);
+
+            $(".previsualizar").attr("src",  respuesta["imagen"]);
+
+           }
+          
+        
+
+      }
+
+  })
+
+})
+
+/*=============================================
+ELIMINAR RUTA
+=============================================*/
+
+$(".tablaRutas tbody").on("click", "button.btnEliminarRuta", function(){
+
+  var idRuta = $(this).attr("idRuta");
+  var codigo = $(this).attr("codigo");
+  var imagen = $(this).attr("imagen");
+  
+  swal({
+
+    title: '¿Está seguro de borrar la ruta?',
+    text: "¡Si no lo está puede cancelar la accíón!",
+    type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, borrar producto!'
+        }).then(function(result){
+        if (result.value) {
+
+          window.location = "index.php?ruta=rutas&idRuta="+idRuta+"&imagen="+imagen+"&codigo="+codigo;
+
+        }
+
+
+  })
+
+})
+
