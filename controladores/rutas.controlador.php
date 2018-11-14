@@ -334,7 +334,7 @@ class ControladorRutas{
 
 				swal({
 					  type: "success",
-					  title: "El Barco ha sido borrado correctamente",
+					  title: "La ruta ha sido borrado correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then(function(result){

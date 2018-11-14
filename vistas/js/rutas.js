@@ -229,7 +229,7 @@ $(".tablaRutas tbody").on("click", "button.btnEliminarRuta", function(){
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar producto!'
+        confirmButtonText: 'Si, borrar ruta!'
         }).then(function(result){
         if (result.value) {
 

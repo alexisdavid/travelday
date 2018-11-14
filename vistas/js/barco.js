@@ -225,14 +225,14 @@ $(".tablaBarcos tbody").on("click", "button.btnEliminarBarco", function(){
   
   swal({
 
-    title: '¿Está seguro de borrar el producto?',
+    title: '¿Está seguro de borrar el barco?',
     text: "¡Si no lo está puede cancelar la accíón!",
     type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar producto!'
+        confirmButtonText: 'Si, borrar barco!'
         }).then(function(result){
         if (result.value) {
 
