@@ -62,73 +62,7 @@
 
 			</li>
 
-			
-			<li class="treeview">
-
-				<a href="#">
-
-					<i class="fa fa-industry"></i>
-					
-					<span>Proveedores</span>
-					
-					<span class="pull-right-container">
-					
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
-
-						<a href="barcos">
-							
-							<i class="fa fa-ship"></i>
-							<span>Barcos</span>
-
-						</a>
-
-					</li>
-
-					<li style="width: 100%">
-
-						<a href="rutas">
-							
-							<i class="fas fa-route"></i>
-							<span>Rutas cruceros</span>
-
-						</a>
-
-					</li>
-
-					<li>
-
-						<a href="#">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Tours</span>
-
-						</a>
-
-					</li>
-					<li>
-
-						<a href="#">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>vuelos</span>
-
-						</a>
-
-					</li>
-
-				</ul>
-
-			</li>
-
-			<li class="treeview">
+				<li class="treeview">
 
 				<a href="#">
 
@@ -182,6 +116,54 @@
 				</ul>
 
 			</li>
+
+			
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-ship"></i>
+					
+					<span>Cruceros</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+
+						<a href="barcos">
+							
+							<i class="fa fa-ship"></i>
+							<span>Cruceros</span>
+
+						</a>
+
+					</li>
+
+					<li style="width: 100%">
+
+						<a href="rutas">
+							
+							<i class="fas fa-route"></i>
+							<span>Rutas cruceros</span>
+
+						</a>
+
+					</li>
+
+
+				</ul>
+
+			</li>
+
+		
 
 		</ul>
 

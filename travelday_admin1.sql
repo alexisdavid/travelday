@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-11-2018 a las 05:40:33
+-- Tiempo de generación: 15-11-2018 a las 01:54:29
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -51,10 +51,8 @@ CREATE TABLE `barcos` (
 --
 
 INSERT INTO `barcos` (`id`, `idCategoria`, `nombre`, `compania`, `pasajeros`, `construccion`, `tonelaje`, `tripulacion`, `descripcion`, `velocidad`, `cubiertas`, `largo`, `ancho`, `imagen`, `codigo`) VALUES
-(1, 1, 'ses', '2', 2, 2, 2, 2, '2', '2', 2, 2, 2, 'vistas/img/productos/default/anonymous.png', '101'),
-(2, 1, 'barcoprueba', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/102/993.jpg', '102'),
 (3, 1, 'segunda prueba', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/103/997.jpg', '103'),
-(6, 1, 'as', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/104/287.jpg', '104');
+(6, 1, 'as', '1', 1, 1, 1, 1, '1', '1', 1, 1, 1, 'vistas/img/productos/104/625.jpg', '104');
 
 -- --------------------------------------------------------
 
@@ -168,12 +166,10 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`) VALUES
 (1, 1, '101', 'Aspiradora Industrial ', 'vistas/img/productos/101/105.png', 15, 1000, 1200, 0, '2017-12-22 16:32:49'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/940.jpg', 20, 4500, 6300, 0, '2017-12-22 16:33:16'),
 (3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/763.jpg', 20, 3000, 4200, 0, '2017-12-22 16:33:31'),
 (4, 1, '104', 'Cortadora de Adobe sin Disco ', 'vistas/img/productos/104/957.jpg', 20, 4000, 5600, 0, '2017-12-22 16:33:52'),
 (5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/630.jpg', 20, 1540, 2156, 0, '2017-12-22 16:34:08'),
 (6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/635.jpg', 20, 1100, 1540, 0, '2017-12-22 16:34:20'),
-(7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/848.jpg', 20, 1540, 2156, 0, '2017-12-22 16:34:33'),
 (8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/163.jpg', 20, 1540, 2156, 0, '2017-12-22 16:34:44'),
 (9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/769.jpg', 20, 2600, 3640, 0, '2017-12-22 16:35:08'),
 (10, 1, '110', 'Hidrolavadora Gasolina', 'vistas/img/productos/110/582.jpg', 20, 2210, 3094, 0, '2017-12-22 16:35:19'),
@@ -251,7 +247,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-11-11 21:46:02', '2018-11-12 02:46:02'),
+(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-11-14 14:06:35', '2018-11-14 19:06:35'),
 (57, 'Juan Fernando Urrego', 'juan', '$2a$07$asxx54ahjppf45sd87a5auwRi.z6UsW7kVIpm0CUEuCpmsvT2sG6O', 'Administrador', 'vistas/img/usuarios/juan/461.jpg', 1, '2018-10-22 22:25:02', '2018-10-23 03:25:02'),
 (58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2017-12-21 12:07:39', '2017-12-21 17:07:39'),
 (63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 0, '0000-00-00 00:00:00', '2018-11-07 01:26:02');
