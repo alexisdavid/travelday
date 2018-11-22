@@ -38,6 +38,7 @@ CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 $("#nuevaCategoriaBarco").change(function(){
 
   var idCategoria = $(this).val();
+  
 
   var datos = new FormData();
     datos.append("idCategoria", idCategoria);

@@ -62,61 +62,6 @@
 
 			</li>
 
-				<li class="treeview">
-
-				<a href="#">
-
-					<i class="fa fa-list-ul"></i>
-					
-					<span>Ventas</span>
-					
-					<span class="pull-right-container">
-					
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
-
-						<a href="#">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar Reservacion</span>
-
-						</a>
-
-					</li>
-
-					<li style="width: 100%">
-
-						<a href="#">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Crear Reservacion</span>
-
-						</a>
-
-					</li>
-
-					<li>
-
-						<a href="#">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de ventas</span>
-
-						</a>
-
-					</li>
-
-				</ul>
-
-			</li>
-
 			
 			<li class="treeview">
 
@@ -158,6 +103,60 @@
 
 					</li>
 
+
+				</ul>
+
+			</li>
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-list-ul"></i>
+					
+					<span>Ventas</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+
+						<a href="#">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Administrar Reservacion</span>
+
+						</a>
+
+					</li>
+
+					<li style="width: 100%">
+
+						<a href="reservas-crucero">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Crear Reservacion</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Reporte de ventas</span>
+
+						</a>
+
+					</li>
 
 				</ul>
 

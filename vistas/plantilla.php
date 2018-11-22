@@ -11,12 +11,12 @@ session_start();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Inventory System</title>
+  <title>Travelday-Admin</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="icon" href="vistas/img/plantilla/icono-negro.png">
+  <link rel="icon" href="vistas/img/plantilla/favicon.ico">
 
    <!--=====================================
   PLUGINS DE CSS
@@ -84,13 +84,14 @@ session_start();
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+  
 </head>
 
 <!--=====================================
 CUERPO DOCUMENTO
 ======================================-->
 
-<body class="hold-transition skin-purple sidebar-collapse sidebar-mini login-page">
+<body class="hold-transition skin-blue-light sidebar-mini login-page">
  
   <?php
 
@@ -128,6 +129,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "barcos" ||
          $_GET["ruta"] == "barcosregistro" ||
           $_GET["ruta"] == "rutas" ||
+           $_GET["ruta"] == "reservas-crucero" ||
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
@@ -169,6 +171,11 @@ CUERPO DOCUMENTO
 <script src="vistas/js/empleados.js"></script>
 <script src="vistas/js/barco.js"></script>
 <script src="vistas/js/rutas.js"></script>
+<script src="vistas/js/reservas.js"></script>
+
+
+
+
 
 
 </body>
