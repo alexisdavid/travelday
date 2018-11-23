@@ -158,6 +158,7 @@ MODAL AGREGAR EMPLEADO
 
             <!-- ENTRADA PARA EL NOMBRE -->
             
+            
             <div class="form-group">
               
               <div class="input-group">

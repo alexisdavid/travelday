@@ -164,24 +164,24 @@
 
                   </div>
 
-               <!--=====================================
-                ENTRADA PASAJEROS
+                   <!--=====================================
+                ENTRADA ADULTOS
                 ======================================--> 
 
-                 <div class="col-md-4">
+                 <div class="col-md-2">
 
                     <div class="form-group">
 
-                        <label for="">pasajeros</label>
+                        <label for="">Adultos</label>
 
                           <div class="input-group">
                     
                              <span class="input-group-addon"><i class="fa fa-users"></i></span>
                              
 
-                             <select name="cantidadPasajeros" class="form-control input-md cantidadPasajeros" id="cantidadPasajeros" required>
+                             <select name="cantidadAdultos" class="form-control input-md cantidadAdultos" id="cantidadAdultos" required>
 
-                                <option value="">Cantidad pasajeros</option>
+                                <option value="">Adultos</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -199,6 +199,44 @@
                 </div>
 
 
+                   <!--=====================================
+                ENTRADA Menores
+                ======================================--> 
+
+                 <div class="col-md-2">
+
+                    <div class="form-group">
+
+                        <label for="">Menores</label>
+
+                          <div class="input-group">
+                    
+                             <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                             
+
+                             <select name="cantidadMenores" class="form-control input-md cantidadMenores" id="cantidadMenores" disabled required>
+
+                                <option value="">Menores</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                   
+
+                             </select>
+                    
+                           
+                          </div>
+                
+                    </div>
+
+                </div>
+
+
+            
+
+
                 <!--=====================================
                 ENTRADA NOMBRES
                 ======================================--> 
@@ -207,7 +245,7 @@
 
                     <div class="form-group">
 
-                      <label for="">Nombre pasajeros:</label>
+                      <label for="">Nombre pasajeros adultos:</label>
 
                          <div class="input-group nombrePasajeros ">
                     
@@ -274,6 +312,159 @@
                    </div>
 
                 </div>
+                 <!--=====================================
+                ENTRADA NOMBRES
+                ======================================--> 
+               
+                 <div class="col-md-5">
+
+                    <div class="form-group">
+
+                      <label for="">Nombre pasajeros Menores de edad:</label>
+
+                         <div class="input-group nombrePasajeros ">
+                    
+                            <span class="input-group-addon "><i class="fas fa-user-alt"></i></i></span>
+
+                                <div id="pasajerosMenores">
+                                    
+
+                                  
+                     
+                               </div>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+                 <!--=====================================
+                ENTRADA FECHAS DE NACIMIENTO
+                ======================================--> 
+                  <div class="col-md-3">
+
+                    <div class="form-group">
+
+                      <label for="">Fecha de nacimiento:</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon "><i class="fas fa-birthday-cake"></i></span>
+
+                                <div id="nacimientoMenores">
+                                    
+
+                                  
+                     
+                               </div>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+                 <!--=====================================
+                ENTRADA GENERO
+                ======================================--> 
+                  <div class="col-md-3">
+
+                    <div class="form-group">
+
+                      <label for="">Genero:</label>
+
+                         <div class="input-group generoPasajeros ">
+                    
+                            <span class="input-group-addon "><i class="fas fa-transgender"></i></span>
+
+                                <div id="generosPasajerosMenores">
+
+                                  
+                                   
+                               </div>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+
+
+                    <!--=====================================
+                ENTRADA FECHAS DE INICIO
+                ======================================--> 
+                  <div class="col-md-4">
+
+                    <div class="form-group">
+
+                      <label for="">Fecha de inicio:</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                            <input type="text" class="form-control input-md" name="fechaInicio" placeholder="Fecha de incio " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+
+                    <!--=====================================
+                ENTRADA FECHAS DE Terminacion
+                ======================================--> 
+                  <div class="col-md-4">
+
+                    <div class="form-group">
+
+                      <label for="">Fecha de terminacion:</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                            <input type="text" class="form-control input-md" name="fechaFinal" placeholder="Fecha de terminacion " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+                   <!--=====================================
+                ENTRADA PASAJEROS
+                ======================================--> 
+
+                 <div class="col-md-4">
+
+                    <div class="form-group">
+
+                        <label for="">pasajeros</label>
+
+                          <div class="input-group">
+                    
+                             <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                             
+
+                             <select name="cantidadPasajeros" class="form-control input-md cantidadPasajeros" id="cantidadPasajeros" required>
+
+                                <option value="">Cantidad pasajeros</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                   
+
+                             </select>
+                    
+                           
+                          </div>
+                
+                    </div>
+
+                </div>
+
+
 
 
 
