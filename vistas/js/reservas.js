@@ -45,6 +45,7 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
  			elem.name = 'pasajero' + i;
  			elem.className = 'form-control';
  			var s = list.appendChild(document.createElement('br'));
+ 			var s = list.appendChild(document.createElement('br'));
 
  }
 		
@@ -72,6 +73,7 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
  			elem.name = 'nacPasajero' + i;
  			elem.className = 'form-control';
  			var s = fecha.appendChild(document.createElement('br'));
+ 			var s = fecha.appendChild(document.createElement('br'));
 
  }
 		
@@ -94,6 +96,8 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
  			elem.name = 'genero' + i;
  			elem.className = 'form-control';
  			var s = genero.appendChild(document.createElement('br'));
+ 			var s = genero.appendChild(document.createElement('br'));
+
 
  }		
 		
@@ -146,6 +150,7 @@ console.log(adultos.value);
  			elem.name = 'pasajeroMenores' + i;
  			elem.className = 'form-control';
  			var s = listMenores.appendChild(document.createElement('br'));
+ 			var s = listMenores.appendChild(document.createElement('br'));
 
  }
 		
@@ -173,6 +178,7 @@ $(".formularioReserva").on("change", "select.cantidadMenores", function(){
  			elem.name = 'nacPasajeroMenores' + i;
  			elem.className = 'form-control';
  			var s = fechaMenores.appendChild(document.createElement('br'));
+ 			var s = fechaMenores.appendChild(document.createElement('br'));
 
  }
 		
@@ -195,6 +201,8 @@ $(".formularioReserva").on("change", "select.cantidadMenores", function(){
  			elem.name = 'generoMenores' + i;
  			elem.className = 'form-control';
  			var s = generoMenores.appendChild(document.createElement('br'));
+ 			var s = generoMenores.appendChild(document.createElement('br'));
+
 
  }		
 		

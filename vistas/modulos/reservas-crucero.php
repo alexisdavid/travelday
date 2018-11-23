@@ -233,14 +233,15 @@
 
                 </div>
 
-
+                  <br>
+                  <br>
             
 
 
                 <!--=====================================
                 ENTRADA NOMBRES
                 ======================================--> 
-               
+         
                  <div class="col-md-5">
 
                     <div class="form-group">
@@ -387,12 +388,14 @@
                    </div>
 
                 </div>
-
+        
+<br>
+<br>
 
                     <!--=====================================
                 ENTRADA FECHAS DE INICIO
                 ======================================--> 
-                  <div class="col-md-4">
+                  <div class="col-md-3">
 
                     <div class="form-group">
 
@@ -413,7 +416,7 @@
                     <!--=====================================
                 ENTRADA FECHAS DE Terminacion
                 ======================================--> 
-                  <div class="col-md-4">
+                  <div class="col-md-3">
 
                     <div class="form-group">
 
@@ -430,40 +433,49 @@
                    </div>
 
                 </div>
-                   <!--=====================================
-                ENTRADA PASAJEROS
-                ======================================--> 
 
-                 <div class="col-md-4">
+                    <!--=====================================
+                ENTRADA HABITACION
+                ======================================--> 
+                  <div class="col-md-3 ">
 
                     <div class="form-group">
 
-                        <label for="">pasajeros</label>
+                      <label for="">Habitacion:</label>
 
-                          <div class="input-group">
+                         <div class="input-group nacimientoPasajeros ">
                     
-                             <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                             
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                             <select name="cantidadPasajeros" class="form-control input-md cantidadPasajeros" id="cantidadPasajeros" required>
+                            <input type="text" class="form-control input-md" name="nuevaHabitacion" placeholder="Habitacion" required>
 
-                                <option value="">Cantidad pasajeros</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                   
-
-                             </select>
-                    
-                           
-                          </div>
+                         </div>
                 
-                    </div>
+                   </div>
 
                 </div>
+                  <!--=====================================
+                ENTRADA NUMERO HABITACION
+                ======================================--> 
+                  <div class="col-md-3">
 
+                    <div class="form-group">
+
+                      <label for="">Habitacion:</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                            <input type="text" class="form-control input-md" name="nuevoNumeroHabitacion" placeholder="habitacion" required>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+              
+              
 
 
 
