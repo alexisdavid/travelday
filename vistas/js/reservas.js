@@ -4,6 +4,10 @@ MODIFICAR LA CANTIDAD
 =============================================*/
 
 $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
+	divC = document.getElementById("mostrar");
+     divC.style.display = "";
+
+
 
 	var menores =  document.getElementById('cantidadMenores');
 

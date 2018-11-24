@@ -57,7 +57,7 @@
                         <label for="">confirmacion Proveedor</label>
                           <div class="input-group">
               
-                            <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+                            <span class="input-group-addon"><i class="fa fa-code "></i></span> 
 
                              <input type="text" class="form-control " name="nuevaConfirmacion" placeholder="# Confirmacion" >
 
@@ -107,7 +107,7 @@
                   <!--=====================================
                 ENTRADA DEL CÓDIGO
                 ======================================--> 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group">
                        <label for="">Folio</label>
                          <div class="input-group">
@@ -120,6 +120,25 @@
                      </div>
 
                 </div>
+                         <!--=====================================
+                ENTRADA DEL VENDEDOR
+            ======================================-->
+           <div class="col-md-2">
+                <div class="form-group">
+                <label for="">Vendedor:</label>
+                  <div class="input-group">
+                    
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
+
+                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+
+                  </div>
+
+                </div> 
+              
+            </div>
 
 
                 <!--=====================================
@@ -236,12 +255,10 @@
                   <br>
                   <br>
             
-
-
                 <!--=====================================
                 ENTRADA NOMBRES
                 ======================================--> 
-         
+         <div id="mostrar" class="mostrar" style="display:none;">
                  <div class="col-md-5">
 
                     <div class="form-group">
@@ -264,6 +281,8 @@
                    </div>
 
                 </div>
+
+
                  <!--=====================================
                 ENTRADA FECHAS DE NACIMIENTO
                 ======================================--> 
@@ -388,7 +407,7 @@
                    </div>
 
                 </div>
-        
+       
 <br>
 <br>
 
@@ -445,7 +464,7 @@
 
                          <div class="input-group nacimientoPasajeros ">
                     
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
 
                             <input type="text" class="form-control input-md" name="nuevaHabitacion" placeholder="Habitacion" required>
 
@@ -461,22 +480,95 @@
 
                     <div class="form-group">
 
-                      <label for="">Habitacion:</label>
+                      <label for="">Numero de Habitacion:</label>
 
                          <div class="input-group nacimientoPasajeros ">
                     
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
 
-                            <input type="text" class="form-control input-md" name="nuevoNumeroHabitacion" placeholder="habitacion" required>
+                            <input type="number" class="form-control input-md" name="nuevoNumeroHabitacion" placeholder="# habitacion" required>
 
                          </div>
                 
                    </div>
 
                 </div>
-              
-              
 
+                      <!--=====================================
+                ENTRADA COMIDAS
+                ======================================--> 
+                  <div class="col-md-4">
+
+                    <div class="form-group">
+
+                      <label for="">Comidas</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
+
+                            <input type="text" class="form-control input-md" name="nuevaComida" placeholder="comidas" required>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+
+                         <!--=====================================
+                ENTRADA ESTATUS
+                ======================================--> 
+                  <div class="col-md-4">
+
+                    <div class="form-group">
+
+                      <label for="">estatus de reserva</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
+
+                            <select name="estatus" id="estatus" class="form-control input-md estatus" >
+                               <option value=""></option>
+                                <option value=" activo">activo</option>
+                                <option value="inactivo">inactivo</option>
+                            </select>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+
+
+                         <!--=====================================
+                ENTRADA VENCIMIENTO
+                ======================================--> 
+                  <div class="col-md-4">
+
+                    <div class="form-group">
+
+                      <label for="">Vencimiento:</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                            <input type="text" class="form-control input-md" name="nuevoVencimiento" placeholder="vencimiento " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+                         </div>
+                
+                   </div>
+
+                </div>
+
+         </div>
+
+         <div class="box-footer col-md-5">
+
+            <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
+
+          </div>
 
 
 
