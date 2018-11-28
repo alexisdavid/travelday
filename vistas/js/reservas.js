@@ -250,6 +250,93 @@ $(".formularioReserva").on("change", "select.estatus", function(){
 	listarPasajeros();
 })
 
+/*=============================================
+TRAER IMAGEN BARCO
+=============================================*/
+
+
+
+$(".formularioReserva").on("change", "select.nombreCrucero", function(){
+	  var idBarco = $(this).val();
+   console.log(idBarco);
+  
+  var datos = new FormData();
+    datos.append("idBarco", idBarco);
+
+     $.ajax({
+
+      url:"ajax/barcos.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+          console.log(respuesta);
+
+
+  //           
+
+           if(respuesta["imagen"] != ""){
+
+            $("#imgBarco").val(respuesta["imagen"]);
+
+            
+
+           }
+          
+        
+
+      }
+
+  })
+})
+/*=============================================
+TRAER IMAGEN RUTA
+=============================================*/
+
+
+
+$(".formularioReserva").on("change", "select.ruta", function(){
+	  var idRuta = $(this).val();
+  // console.log(idRuta);
+  
+  var datos = new FormData();
+    datos.append("idRuta", idRuta);
+
+     $.ajax({
+
+      url:"ajax/rutas.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+          // console.log(respuesta);
+        
+
+           if(respuesta["imagen"] != ""){
+
+            $("#imgRuta").val(respuesta["imagen"]);
+            $("#htmlRuta").val(respuesta["html"]);
+
+            
+
+           }
+          
+        
+
+      }
+
+  })
+})
+
+
+
+
 
 
 

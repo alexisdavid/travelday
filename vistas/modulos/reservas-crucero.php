@@ -152,7 +152,7 @@
               
                       <span class="input-group-addon"><i class="fa fa-ship"></i></span> 
 
-                       <select class="form-control " id="nombreCrucero" name="nombreCrucero" required>
+                       <select class="form-control nombreCrucero" id="nombreCrucero" name="nombreCrucero" required>
                   
                       <option value="">Selecionar Barco</option>
 
@@ -166,7 +166,11 @@
                       foreach ($categorias as $key => $value) {
                         
                         echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+
                       }
+                      echo ' <input type="hidden" id="imgBarco" name="imgBarco">';
+
+                    
 
                       ?>
   
@@ -189,7 +193,7 @@
               
                       <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                       <select class="form-control " id="ruta" name="ruta" required>
+                       <select class="form-control ruta " id="ruta" name="ruta" required>
                   
                       <option value="">Selecionar Ruta</option>
 
@@ -203,7 +207,11 @@
                       foreach ($categorias as $key => $value) {
                         
                         echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
+
                       }
+                       echo ' <input type="hidden" id="imgRuta" name="imgRuta">';
+                        echo ' <input type="hidden" id="htmlRuta" name="htmlRuta">';
+
 
                       ?>
   
