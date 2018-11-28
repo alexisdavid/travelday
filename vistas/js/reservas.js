@@ -9,12 +9,13 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
 
 
 
+
 	var menores =  document.getElementById('cantidadMenores');
 
 	 var Pasajeros = $(this).val();
 
 	 var total = (parseInt(menores.value) + parseInt(Pasajeros))
- 		console.log(total);
+ 		
  		
 	clean();
 
@@ -46,8 +47,8 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
 
  			var elem = list.appendChild(document.createElement('input'));
  			elem.setAttribute('type','text');
- 			elem.name = 'pasajero' + i;
- 			elem.className = 'form-control';
+ 			elem.className = 'form-control pasajero';
+ 			elem.setAttribute('required','required');
  			var s = list.appendChild(document.createElement('br'));
  			var s = list.appendChild(document.createElement('br'));
 
@@ -74,8 +75,8 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
 
  			var elem = fecha.appendChild(document.createElement('input'));
  			elem.setAttribute('type','date');
- 			elem.name = 'nacPasajero' + i;
- 			elem.className = 'form-control';
+ 			elem.className = 'form-control nacimiento';
+ 			elem.setAttribute('required','required');
  			var s = fecha.appendChild(document.createElement('br'));
  			var s = fecha.appendChild(document.createElement('br'));
 
@@ -97,8 +98,8 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
 
  			var elem = genero.appendChild(document.createElement('input'));
  			elem.setAttribute('type','text');
- 			elem.name = 'genero' + i;
- 			elem.className = 'form-control';
+ 			elem.className = 'form-control genero';
+ 			elem.setAttribute('required','required');
  			var s = genero.appendChild(document.createElement('br'));
  			var s = genero.appendChild(document.createElement('br'));
 
@@ -115,13 +116,13 @@ MODIFICAR LA CANTIDAD MENORES
 $(".formularioReserva").on("change", "select.cantidadMenores", function(){
 
 var adultos =  document.getElementById('cantidadAdultos');
-console.log(adultos.value);
+
 
 
  var PasajerosMenores = $(this).val();
 
  var total = (parseInt(adultos.value) + parseInt(PasajerosMenores))
- 		console.log(total);
+ 		
 	inicio();
 
 	if(Number($(this).val()) > 5 || total > 5){
@@ -151,8 +152,8 @@ console.log(adultos.value);
 
  			var elem = listMenores.appendChild(document.createElement('input'));
  			elem.setAttribute('type','text');
- 			elem.name = 'pasajeroMenores' + i;
- 			elem.className = 'form-control';
+ 			elem.className = 'form-control pasajero';
+ 			elem.setAttribute('required','required');
  			var s = listMenores.appendChild(document.createElement('br'));
  			var s = listMenores.appendChild(document.createElement('br'));
 
@@ -179,8 +180,8 @@ $(".formularioReserva").on("change", "select.cantidadMenores", function(){
 
  			var elem = fechaMenores.appendChild(document.createElement('input'));
  			elem.setAttribute('type','date');
- 			elem.name = 'nacPasajeroMenores' + i;
- 			elem.className = 'form-control';
+ 			elem.className = 'form-control nacimiento';
+ 			elem.setAttribute('required','required');
  			var s = fechaMenores.appendChild(document.createElement('br'));
  			var s = fechaMenores.appendChild(document.createElement('br'));
 
@@ -202,8 +203,8 @@ $(".formularioReserva").on("change", "select.cantidadMenores", function(){
 
  			var elem = generoMenores.appendChild(document.createElement('input'));
  			elem.setAttribute('type','text');
- 			elem.name = 'generoMenores' + i;
- 			elem.className = 'form-control';
+ 			elem.className = 'form-control genero';
+ 			elem.setAttribute('required','required');
  			var s = generoMenores.appendChild(document.createElement('br'));
  			var s = generoMenores.appendChild(document.createElement('br'));
 
@@ -212,6 +213,48 @@ $(".formularioReserva").on("change", "select.cantidadMenores", function(){
 		
 
 })
+
+
+/*=============================================
+LISTAR TODOS LOS PRODUCTOS
+=============================================*/
+
+function listarPasajeros(){
+
+	var listaPasajero = [];
+
+	var nombre = $(".pasajero");
+
+	var nacimiento = $(".nacimiento");
+
+	var genero = $(".genero");
+
+	for(var i = 0; i < nombre.length; i++){
+
+		listaPasajero.push({ "nombre" : $(nombre[i]).val(),
+							  "nacimiento" : $(nacimiento[i]).val(),
+							  "genero" : $(genero[i]).val()})
+
+	}
+
+	console.log(listaPasajero);
+
+	$("#listaPasajeros").val(JSON.stringify(listaPasajero)); 
+
+}
+/*=============================================
+AÑADIR pasajeros
+=============================================*/
+
+$(".formularioReserva").on("change", "select.estatus", function(){
+	listarPasajeros();
+})
+
+
+
+
+
+
 function clean(){
 list = document.getElementById('pasajeros');
  while(list.childNodes.length){

@@ -87,7 +87,7 @@ MODAL AGREGAR RUTA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Barco</h4>
+          <h4 class="modal-title">Agregar Ruta</h4>
 
         </div>
 

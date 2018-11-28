@@ -50,6 +50,7 @@
 
               <div class="row">
 
+
                    <!-- ENTRADA PARA CONFIRMACION DE PROVEEDOR -->
                   <div class="col-md-4">
 
@@ -141,6 +142,80 @@
             </div>
 
 
+                 <!-- ENTRADA PARA BARCO -->
+            
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                         <label for="">Crucero</label>
+                      <div class="input-group">
+              
+                      <span class="input-group-addon"><i class="fa fa-ship"></i></span> 
+
+                       <select class="form-control " id="nombreCrucero" name="nombreCrucero" required>
+                  
+                      <option value="">Selecionar Barco</option>
+
+                      <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $categorias = ControladorBarcos::ctrMostrarBarcos($item, $valor);
+
+                      foreach ($categorias as $key => $value) {
+                        
+                        echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+                      }
+
+                      ?>
+  
+                       </select>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                       <!-- ENTRADA PARA RUTA -->
+            
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                         <label for="">Ruta.</label>
+                      <div class="input-group">
+              
+                      <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                       <select class="form-control " id="ruta" name="ruta" required>
+                  
+                      <option value="">Selecionar Ruta</option>
+
+                      <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $categorias = ControladorRutas::ctrMostrarRutas($item, $valor);
+
+                      foreach ($categorias as $key => $value) {
+                        
+                        echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
+                      }
+
+                      ?>
+  
+                       </select>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
                 <!--=====================================
                 ENTRADA DEL CLIENTE
                 ======================================--> 
@@ -154,7 +229,7 @@
                         
                         <span class="input-group-addon"><i class="fa fa-users"></i></span>
                         
-                        <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
+                        <select class="form-control" id="seleccionarCliente" name="cliente" required>
 
                         <option value="">Seleccionar cliente</option>
 
@@ -233,7 +308,7 @@
                              <span class="input-group-addon"><i class="fa fa-users"></i></span>
                              
 
-                             <select name="cantidadMenores" class="form-control input-md cantidadMenores" id="cantidadMenores" disabled required>
+                             <select name="cantidadMenores" class="form-control input-md cantidadMenores" id="cantidadMenores" disabled >
 
                                 <option value="">Menores</option>
                                 <option value="1">1</option>
@@ -254,6 +329,9 @@
 
                   <br>
                   <br>
+
+<br>
+<br>
             
                 <!--=====================================
                 ENTRADA NOMBRES
@@ -269,12 +347,15 @@
                     
                             <span class="input-group-addon "><i class="fas fa-user-alt"></i></i></span>
 
+
                                 <div id="pasajeros">
                                     
+
 
                                   
                      
                                </div>
+                                <input type="hidden" id="listaPasajeros" name="listaPasajeros">
 
                          </div>
                 
@@ -383,6 +464,7 @@
                    </div>
 
                 </div>
+
                  <!--=====================================
                 ENTRADA GENERO
                 ======================================--> 
@@ -414,7 +496,7 @@
                     <!--=====================================
                 ENTRADA FECHAS DE INICIO
                 ======================================--> 
-                  <div class="col-md-3">
+                  <div class="col-md-6">
 
                     <div class="form-group">
 
@@ -424,7 +506,7 @@
                     
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                            <input type="text" class="form-control input-md" name="fechaInicio" placeholder="Fecha de incio " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                            <input type="text" class="form-control input-md inicio" name="fechaInicio" placeholder="Fecha de incio " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
                          </div>
                 
@@ -435,7 +517,7 @@
                     <!--=====================================
                 ENTRADA FECHAS DE Terminacion
                 ======================================--> 
-                  <div class="col-md-3">
+                  <div class="col-md-6">
 
                     <div class="form-group">
 
@@ -456,7 +538,7 @@
                     <!--=====================================
                 ENTRADA HABITACION
                 ======================================--> 
-                  <div class="col-md-3 ">
+                  <div class="col-md-6">
 
                     <div class="form-group">
 
@@ -473,10 +555,12 @@
                    </div>
 
                 </div>
+
+
                   <!--=====================================
                 ENTRADA NUMERO HABITACION
                 ======================================--> 
-                  <div class="col-md-3">
+                  <div class="col-md-6">
 
                     <div class="form-group">
 
@@ -484,7 +568,7 @@
 
                          <div class="input-group nacimientoPasajeros ">
                     
-                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
+                            <span class="input-group-addon"><i class="fas fa-sort-numeric-up"></i></span> 
 
                             <input type="number" class="form-control input-md" name="nuevoNumeroHabitacion" placeholder="# habitacion" required>
 
@@ -497,7 +581,7 @@
                       <!--=====================================
                 ENTRADA COMIDAS
                 ======================================--> 
-                  <div class="col-md-4">
+                  <div class="col-md-6">
 
                     <div class="form-group">
 
@@ -505,7 +589,7 @@
 
                          <div class="input-group nacimientoPasajeros ">
                     
-                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
+                            <span class="input-group-addon"><i class="fas fa-utensils"></i></span> 
 
                             <input type="text" class="form-control input-md" name="nuevaComida" placeholder="comidas" required>
 
@@ -518,7 +602,7 @@
                          <!--=====================================
                 ENTRADA ESTATUS
                 ======================================--> 
-                  <div class="col-md-4">
+                  <div class="col-md-6">
 
                     <div class="form-group">
 
@@ -526,10 +610,10 @@
 
                          <div class="input-group nacimientoPasajeros ">
                     
-                            <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
+                            <span class="input-group-addon"><i class="fas fa-spinner"></i></span> 
 
                             <select name="estatus" id="estatus" class="form-control input-md estatus" >
-                               <option value=""></option>
+                               <option value="">seleccione una opcion</option>
                                 <option value=" activo">activo</option>
                                 <option value="inactivo">inactivo</option>
                             </select>
@@ -544,7 +628,7 @@
                          <!--=====================================
                 ENTRADA VENCIMIENTO
                 ======================================--> 
-                  <div class="col-md-4">
+                  <div class="col-md-12">
 
                     <div class="form-group">
 
@@ -561,12 +645,32 @@
                    </div>
 
                 </div>
+                     <!--=====================================
+                ENTRADA PARA COMENTARIOS
+                ======================================--> 
+                  <div class="col-md-12">
+
+                    <div class="form-group">
+
+                      <label for="">Comentarios:</label>
+
+                         <div class="input-group nacimientoPasajeros ">
+                    
+                            <span class="input-group-addon"><i class="fas fa-comments"></i></span> 
+
+                            
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                         </div>
+                
+                   </div>
+
+                </div>
 
          </div>
 
          <div class="box-footer col-md-5">
 
-            <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
+            <button  class="btn btn-primary pull-right boton" id="boton">Guardar venta</button>
 
           </div>
 
