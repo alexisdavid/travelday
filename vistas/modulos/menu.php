@@ -113,7 +113,7 @@
 
 					<i class="fa fa-list-ul"></i>
 					
-					<span>Ventas</span>
+					<span>Reservas crucero</span>
 					
 					<span class="pull-right-container">
 					
@@ -127,9 +127,9 @@
 					
 					<li>
 
-						<a href="#">
+						<a href="administrarReservas">
 							
-							<i class="fa fa-circle-o"></i>
+							<i class="fas fa-clipboard-list"></i>
 							<span>Administrar Reservacion</span>
 
 						</a>
@@ -140,7 +140,7 @@
 
 						<a href="reservas-crucero">
 							
-							<i class="fa fa-circle-o"></i>
+							<i class="fas fa-plus-circle"></i>
 							<span>Crear Reservacion</span>
 
 						</a>

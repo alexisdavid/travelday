@@ -1,5 +1,49 @@
 
 /*=============================================
+CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
+=============================================*/
+
+$(".formularioReserva").on("change", "select.categoriaServico", function(){
+
+
+  var idCategoria = $(this).val();
+  // console.log(idCategoria);
+  
+
+  var datos = new FormData();
+    datos.append("idCategoria", idCategoria);
+
+    $.ajax({
+
+      url:"ajax/reservas.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+        // console.log(respuesta);
+
+        if(!respuesta){
+
+          var nuevoCodigo = idCategoria+"01";
+          $("#nuevoFolio").val(nuevoCodigo);
+
+        }else{
+
+          var nuevoCodigo = Number(respuesta["folio"]) + 1;
+            $("#nuevoFolio").val(nuevoCodigo);
+
+        }
+                
+      }
+
+    })
+
+})
+
+/*=============================================
 MODIFICAR LA CANTIDAD
 =============================================*/
 
@@ -13,6 +57,8 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
 	var menores =  document.getElementById('cantidadMenores');
 
 	 var Pasajeros = $(this).val();
+
+	 
 
 	 var total = (parseInt(menores.value) + parseInt(Pasajeros))
  		
@@ -114,6 +160,7 @@ MODIFICAR LA CANTIDAD MENORES
 =============================================*/
 
 $(".formularioReserva").on("change", "select.cantidadMenores", function(){
+
 
 var adultos =  document.getElementById('cantidadAdultos');
 
