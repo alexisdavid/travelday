@@ -674,7 +674,7 @@
 
              <div class="box-footer col-md-5">
 
-                <button  class="btn btn-primary pull-right boton" onclick="listarPasajeros()" id="boton">Guardar venta</button>
+                <button  class="btn btn-primary pull-right boton" onclick="listarPasajeros()" id="boton">Guardar reserva</button>
 
               </div>
 

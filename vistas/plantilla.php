@@ -173,6 +173,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/barco.js"></script>
 <script src="vistas/js/rutas.js"></script>
 <script src="vistas/js/reservas.js"></script>
+<script src="vistas/js/administrarReserva.js"></script>
 
 
 

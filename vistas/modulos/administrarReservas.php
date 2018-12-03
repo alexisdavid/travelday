@@ -24,7 +24,7 @@
 
       <div class="box-header with-border">
   
-        <a href="crear-venta">
+        <a href="administrarReservas">
 
           <button class="btn btn-primary">
             
@@ -38,20 +38,21 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas">
+       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
          
         <thead>
          
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Código factura</th>
-           <th>Cliente</th>
-           <th>Vendedor</th>
-           <th>Forma de pago</th>
-           <th>Neto</th>
-           <th>Total</th> 
-           <th>Fecha</th>
+           <th>Folio</th>
+           <th>cliente</th>
+           <th>barco</th>
+           <th>ruta</th>
+           <th>fechaInicio</th>
+           <th>fechaFinal</th> 
+           <th>estatus</th>
+            <th>comentarios</th>
            <th>Acciones</th>
 
          </tr> 
@@ -59,43 +60,85 @@
         </thead>
 
         <tbody>
-          
-          <tr>
 
-            <td>1</td>
+        <?php
 
-            <td>1000123</td>
+          $item = null;
+          $valor = null;
 
-            <td>Juan Villegas</td>
+          $respuesta = ControladorReservas::ctrMostrarReserva($item, $valor);
 
-            <td>Julio Gómez</td>
+          foreach ($respuesta as $key => $value) {
 
-            <td>TC-12412425346</td>
 
-            <td>$ 1,000.00</td>
+           echo '<tr>
 
-            <td>$ 1,190.00</td>
+                 <td>'.($key+1).'</td>
+                  <td>'.$value["folio"].'</td>';
 
-            <td>2017-12-11 12:05:32</td>
+                  $itemCliente = "id";
+                  $valorCliente = $value["idCliente"];
 
-            <td>
+                  $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
-              <div class="btn-group">
-                  
-                <button class="btn btn-info"><i class="fa fa-print"></i></button>
+                  echo '<td>'.$respuestaCliente["nombre"].'</td>';
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                  $itemUsuario = "id";
+                  $valorUsuario = $value["barco"];
 
-              </div>  
+                  $respuestaUsuario = ControladorBarcos::ctrMostrarBarcos($itemUsuario, $valorUsuario);
 
-            </td>
+                  echo '<td>'.$respuestaUsuario["nombre"].'</td>';
 
-          </tr>
-          
+                  $itemUsuario = "id";
+                  $valorUsuario = $value["idRuta"];
+
+                  $respuestaUsuario = ControladorRutas::ctrMostrarRutas($itemUsuario, $valorUsuario);
+                
+
+                  echo '<td>'.$respuestaUsuario["descripcion"].'</td>';
+
+                  echo '<td>'.$value["fechaInicio"].'</td>';
+                  echo '<td>'.$value["fechaFinal"].'</td>';
+
+                if($value["estatus"] === " activo"){
+
+                    echo '<td><button class="btn btn-success">Activo</button></td>';
+
+                  }else{
+
+                    echo '<td><button class="btn btn-danger">Inactivo</button></td>';
+
+                  } 
+                  echo '<td>'.$value["comentarios"].'</td>';
+
+                   echo '
+                        <td>
+
+                    <div class="btn-group">
+                        
+                      <button class="btn btn-info fa-1x imprimirReserva" idReserva="'.$value["id"].'"><i class="fas fa-print"></i></button>
+
+                      <button class="btn btn-warning btnEditarReserva" idReserva="'.$value["id"].'"><i class="fas fa-edit"></i></button>
+
+                      <button class="btn btn-danger btnEliminarReserva" idReserva="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                    </div>  
+
+                  </td>
+
+                </tr> ';
+
+      
+            }
+
+        ?>
+               
         </tbody>
 
        </table>
 
+    
       </div>
 
     </div>
@@ -103,4 +146,7 @@
   </section>
 
 </div>
+
+
+
 

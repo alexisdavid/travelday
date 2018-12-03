@@ -7,13 +7,13 @@ require_once "../controladores/categorias.controlador.php";
 require_once "../modelos/categorias.modelo.php";
 
 
-class TablaProductos{
+class TablaReservas{
 
  	/*=============================================
  	 MOSTRAR LA TABLA DE PRODUCTOS
   	=============================================*/ 
 
-	public function mostrarTablaProductos(){
+	public function mostrarTablaReservas(){
 
 		$item = null;
     	$valor = null;
@@ -96,6 +96,6 @@ class TablaProductos{
 /*=============================================
 ACTIVAR TABLA DE PRODUCTOS
 =============================================*/ 
-$activarProductos = new TablaProductos();
-$activarProductos -> mostrarTablaProductos();
+$activarReservas = new TablaReservas();
+$activarReservas -> mostrarTablaReservas();
 

@@ -75,7 +75,7 @@ class ControladorReservas{
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "reservas-crucero";
+										window.location = "administrarReservas";
 
 										}
 									})
@@ -95,7 +95,7 @@ class ControladorReservas{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "reservas-crucero";
+							window.location = "administrarReservas";
 
 							}
 						})
