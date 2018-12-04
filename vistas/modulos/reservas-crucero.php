@@ -251,7 +251,7 @@
 
                                foreach ($categorias as $key => $value) {
 
-                                 echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+                                 echo '<option value="'.$value["id"].'">'.$value["email"].'</option>';
 
                                }
 
@@ -422,9 +422,9 @@
                     ENTRADA NOMBRES
                     ======================================--> 
                    
-                     <div class="col-md-5">
+                     <div class="col-md-5" >
 
-                        <div class="form-group">
+                        <div class="form-group" >
 
                           <label for="">Nombre pasajeros Menores de edad:</label>
 
