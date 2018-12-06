@@ -142,8 +142,15 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
 
 		for(var i = 1; i <= Pasajeros; i++){
 
- 			var elem = genero.appendChild(document.createElement('input'));
- 			elem.setAttribute('type','text');
+ 			var elem = genero.appendChild(document.createElement('select'));
+ 			var miOption=document.createElement("option");
+ 			miOption.setAttribute("label","Masculino");
+ 			miOption.setAttribute('value','Masculino');
+ 			elem.appendChild(miOption);
+ 			var miOption2=document.createElement("option");
+ 			miOption2.setAttribute("label","femenino");
+ 			miOption2.setAttribute('value','Femenino');
+ 			elem.appendChild(miOption2);
  			elem.className = 'form-control genero';
  			elem.setAttribute('required','required');
  			var s = genero.appendChild(document.createElement('br'));
@@ -248,8 +255,15 @@ $(".formularioReserva").on("change", "select.cantidadMenores", function(){
 
 		for(var i = 1; i <= PasajerosMenores; i++){
 
- 			var elem = generoMenores.appendChild(document.createElement('input'));
- 			elem.setAttribute('type','text');
+ 			var elem = generoMenores.appendChild(document.createElement('select'));
+ 			var miOption=document.createElement("option");
+ 			miOption.setAttribute("label","Masculino");
+ 			miOption.setAttribute('value','Masculino');
+ 			elem.appendChild(miOption);
+ 			var miOption2=document.createElement("option");
+ 			miOption2.setAttribute("label","femenino");
+ 			miOption2.setAttribute('value','Femenino');
+ 			elem.appendChild(miOption2);
  			elem.className = 'form-control genero';
  			elem.setAttribute('required','required');
  			var s = generoMenores.appendChild(document.createElement('br'));
