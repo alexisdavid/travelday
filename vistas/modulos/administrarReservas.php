@@ -24,7 +24,7 @@
 
       <div class="box-header with-border">
   
-        <a href="administrarReservas">
+        <a href="reservas-crucero">
 
           <button class="btn btn-primary">
             
@@ -69,6 +69,8 @@
           $respuesta = ControladorReservas::ctrMostrarReserva($item, $valor);
 
           foreach ($respuesta as $key => $value) {
+
+            
 
 
            echo '<tr>
@@ -121,7 +123,6 @@
 
                       <button class="btn btn-warning btnEditarReserva" idReserva="'.$value["id"].'"><i class="fas fa-edit"></i></button>
 
-                      <button class="btn btn-danger btnEliminarReserva" idReserva="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                     </div>  
 

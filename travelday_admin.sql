@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-12-2018 a las 22:42:45
+-- Tiempo de generación: 10-12-2018 a las 06:05:28
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -104,7 +104,7 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`id`, `nombre`, `documento`, `direccion`, `email`, `telefono`, `telefono2`, `fecha`) VALUES
 (1, 'Juan Villegas', '81611239', 'ALFREDO V. BONFIL', 'duartebonfil@gmail.com', '(998) 243-2827', '(998) 263-2345', '2018-10-31 01:17:57'),
 (2, 'pedro', 'ducj721121mma', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 'alexisduarte1512@gmail.com', '(333) 333-3333', '(333) 333-3333', '2018-11-15 03:31:31'),
-(3, 'papa', '223444', 'lkdkfkfl', 'alexisduarte1512@gmail.com', '(999) 999-9999', '(999) 999-9999', '2018-11-21 03:48:17'),
+(3, 'papa', '223444', 'lkdkfkfl', 'correo@prueba.com', '(999) 999-9999', '(999) 999-9999', '2018-12-03 17:12:50'),
 (4, 'pape', 'ducj721121mma', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 'alexisduarte1512@gmail.com', '(999) 999-9999', '(999) 999-9999', '2018-11-21 03:49:26');
 
 -- --------------------------------------------------------
@@ -249,7 +249,7 @@ CREATE TABLE `reservas` (
   `idCliente` int(11) NOT NULL,
   `adultos` int(11) DEFAULT NULL,
   `menores` int(11) DEFAULT NULL,
-  `nombrePasajeros` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `nombrePasajeros` text COLLATE utf8_spanish_ci NOT NULL,
   `fechaInicio` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fechaFinal` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `habitacion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -257,6 +257,9 @@ CREATE TABLE `reservas` (
   `mealPlan` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `estatus` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `vencimiento` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `costo` float NOT NULL,
+  `metodoPago` text COLLATE utf8_spanish_ci NOT NULL,
+  `codigo` text COLLATE utf8_spanish_ci NOT NULL,
   `comentarios` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -265,8 +268,13 @@ CREATE TABLE `reservas` (
 -- Volcado de datos para la tabla `reservas`
 --
 
-INSERT INTO `reservas` (`id`, `cProveedor`, `categoria`, `folio`, `id_vendedor`, `barco`, `imgBarco`, `idRuta`, `imgRuta`, `htmlRuta`, `idCliente`, `adultos`, `menores`, `nombrePasajeros`, `fechaInicio`, `fechaFinal`, `habitacion`, `numHabitacion`, `mealPlan`, `estatus`, `vencimiento`, `comentarios`, `fecha`) VALUES
-(9, '0980986', 1, 101, 1, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 2, 2, 3, '[{\"nombre\":\"pedro\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"},{\"nombre\":\"maria\",\"nacimiento\":\"1992-12-15\",\"genero\":\"mujer\"},{\"nombre\":\"marcos\",\"nacimiento\":\"2000-12-15\",\"genero\":\"hombre\"},{\"nombre\":\"pedro\",\"nacimiento\":\"2001-12-15\",\"genero\":\"hombre\"},{\"', '2010/01/12', '2012/01/31', '244', '34td', 'incluidas', ' activo', '2015/01/22', 'comentario', '2018-12-02 21:16:43');
+INSERT INTO `reservas` (`id`, `cProveedor`, `categoria`, `folio`, `id_vendedor`, `barco`, `imgBarco`, `idRuta`, `imgRuta`, `htmlRuta`, `idCliente`, `adultos`, `menores`, `nombrePasajeros`, `fechaInicio`, `fechaFinal`, `habitacion`, `numHabitacion`, `mealPlan`, `estatus`, `vencimiento`, `costo`, `metodoPago`, `codigo`, `comentarios`, `fecha`) VALUES
+(10, '1734937445', 4, 401, 63, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 1, 1, 0, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2015/12/15', '2011/11/11', 'habitacion', 'cqefq', 'qcqe', 'inactivo', '2012/12/12', 132334, 'Paypal', '24545', 'otro comentario', '2018-12-02 23:50:35'),
+(11, '12574555', 4, 402, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 4, 1, 0, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2011/11/11', '2011/11/11', 'dbe', 'ebe', 'erve', ' activo', '2022/02/22', 34564, 'tarjetaDebito', '5245', 'ervbe', '2018-12-03 03:41:50'),
+(12, '123456864322', 4, 403, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 3, 2, 3, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2011/11/11', '2071/06/26', 'dva', 'khvkv', 'blscbl', ' activo', '2011/02/03', 234450, 'tarjetaCredito', '345636', 'comment', '2018-12-06 01:22:27'),
+(13, 'pendiente', 1, 101, 1, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 1, 1, 0, '[{\"nombre\":\"juan\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Masculino\"}]', '1991/12/15', '1991/12/12', 'sfcc', 'hi f', 'ojbvb', ' activo', '2042/04/05', 0, 'tarjetaCredito', '1341', 'hget', '2018-12-06 01:48:42'),
+(14, '777564264', 4, 404, 1, 6, 'vistas/img/productos/104/625.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 2, 2, 3, '[{\"nombre\":\"alexis duarte\",\"nacimiento\":\"1991-11-12\",\"genero\":\"Masculino\"},{\"nombre\":\"maria juarez\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Femenino\"},{\"nombre\":\"pedro\",\"nacimiento\":\"1111-11-11\",\"genero\":\"Masculino\"},{\"nombre\":\"juan\",\"nacimiento\":\"1111-11-11\",\"genero\":\"Masculino\"},{\"nombre\":\"maria\",\"nacimiento\":\"1111-11-11\",\"genero\":\"Masculino\"}]', '2011/11/11', '2011/11/11', '1111111', 'dcwc', 'qeccccc', ' activo', '2011/11/11', 230, 'tarjetaCredito', '311', 'wvc2w', '2018-12-09 03:59:29'),
+(15, 'pendiente', 4, 405, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 3, 1, 1, '[{\"nombre\":\"JUAN\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Masculino\"},{\"nombre\":\"PEDRO\",\"nacimiento\":\"1999-12-15\",\"genero\":\"Masculino\"}]', '2012/12/12', '2012/02/12', '111', 'QECQ11', 'ADCAC', ' activo', '2012/12/12', 2000, 'tarjetaCredito', '2345533', 'CSAS', '2018-12-10 01:36:23');
 
 -- --------------------------------------------------------
 
@@ -293,7 +301,7 @@ CREATE TABLE `rutas` (
 --
 
 INSERT INTO `rutas` (`id`, `idCategoria`, `codigo`, `descripcion`, `noches`, `puertos`, `embarque`, `desembarque`, `html`, `imagen`, `fecha`) VALUES
-(2, 1, 102, 'soldadura en general de bronce', 3, 3, 'sfd', 'da', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope=\"row\">1</th>\r\n      <td>Mark</td>\r\n      <td>Otto</td>\r\n      <td>@mdo</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">2</th>\r\n      <td>Jacob</td>\r\n      <td>Thornton</td>\r\n      <td>@fat</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">3</th>\r\n      <td>Larry</td>\r\n      <td>the Bird</td>\r\n      <td>@twitter</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n<table class=\"table\">\r\n  <thead class=\"thead-light\">\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope=\"row\">1</th>\r\n      <td>Mark</td>\r\n      <td>Otto</td>\r\n      <td>@mdo</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">2</th>\r\n      <td>Jacob</td>\r\n      <td>Thornton</td>\r\n      <td>@fat</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">3</th>\r\n      <td>Larry</td>\r\n      <td>the Bird</td>\r\n      <td>@twitter</td>\r\n    </tr>\r\n  </tbody>\r\n</table>', 'vistas/img/rutas/102/980.jpg', '2018-11-15 02:52:18'),
+(2, 1, 102, 'ruta b', 3, 3, 'sfd', 'da', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope=\"row\">1</th>\r\n      <td>Mark</td>\r\n      <td>Otto</td>\r\n      <td>@mdo</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">2</th>\r\n      <td>Jacob</td>\r\n      <td>Thornton</td>\r\n      <td>@fat</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">3</th>\r\n      <td>Larry</td>\r\n      <td>the Bird</td>\r\n      <td>@twitter</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n<table class=\"table\">\r\n  <thead class=\"thead-light\">\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope=\"row\">1</th>\r\n      <td>Mark</td>\r\n      <td>Otto</td>\r\n      <td>@mdo</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">2</th>\r\n      <td>Jacob</td>\r\n      <td>Thornton</td>\r\n      <td>@fat</td>\r\n    </tr>\r\n    <tr>\r\n      <th scope=\"row\">3</th>\r\n      <td>Larry</td>\r\n      <td>the Bird</td>\r\n      <td>@twitter</td>\r\n    </tr>\r\n  </tbody>\r\n</table>', 'vistas/img/rutas/102/980.jpg', '2018-12-09 18:18:01'),
 (3, 4, 401, 'RUTA A', 5, 3, 'costa rica', 'panama', 'fljfkkdkñdsñk', 'vistas/img/rutas/401/226.jpg', '2018-11-28 01:47:47');
 
 -- --------------------------------------------------------
@@ -319,10 +327,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-12-02 14:29:18', '2018-12-02 19:29:18'),
+(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-12-09 20:59:31', '2018-12-10 01:59:31'),
 (57, 'Juan Fernando Urrego', 'juan', '$2a$07$asxx54ahjppf45sd87a5auwRi.z6UsW7kVIpm0CUEuCpmsvT2sG6O', 'Administrador', 'vistas/img/usuarios/juan/461.jpg', 1, '2018-10-22 22:25:02', '2018-10-23 03:25:02'),
 (58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2017-12-21 12:07:39', '2017-12-21 17:07:39'),
-(63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 1, '2018-11-23 22:11:43', '2018-11-24 03:11:43');
+(63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 1, '2018-12-08 10:10:14', '2018-12-08 15:10:14');
 
 --
 -- Índices para tablas volcadas
@@ -414,7 +422,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `rutas`

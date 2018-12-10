@@ -17,17 +17,15 @@ class ControladorReservas{
 		return $respuesta;
 
 	}
+	/*=============================================
+	CREAR RESERVAS
+	=============================================*/
 
 	static public function ctrCrearReserva(){
 
 		if(isset($_POST["nuevoFolio"])){
 
-			// $adultos = (int)$_POST["cantidadAdultos"];
-
-			if ($_POST["cantidadMenores"]  == "") {
-
-				// $_POST["cantidadMenores"] = 0;
-			}
+			
 
 			if(preg_match('/^[0-9]+$/', $_POST["categoriaServicio"]) &&
 				preg_match('/^[0-9]+$/', $_POST["nuevoFolio"])){
@@ -54,6 +52,9 @@ class ControladorReservas{
 							   "mealPlan"=>$_POST["nuevaComida"],
 					           "estatus"=>$_POST["estatus"],
 							   "vencimiento"=>$_POST["nuevoVencimiento"],
+							   "costo"=>$_POST["nuevoTotalReserva"],
+							   "metodoPago"=>$_POST["nuevoMetodoPago"],
+							   "codigo"=>$_POST["nuevoCodigoTransaccion"],
 							   "comentarios"=>$_POST["comentarios"]);
 			  
 			   	// foreach ($datos as $key => $value) {
@@ -109,6 +110,97 @@ class ControladorReservas{
 
 	}
 
+	/*=============================================
+	EDITAR RESERVAS
+	=============================================*/
+	static public function ctrEditarReserva(){
+
+		if(isset($_POST["EditarnuevoFolio"])){
+
+			
+
+			if(preg_match('/^[0-9]+$/', $_POST["editarCategoriaServicio"]) &&
+				preg_match('/^[0-9]+$/', $_POST["EditarnuevoFolio"])){
+
+				$tabla = "reservas";
+
+			   	$datos = array("cProveedor"=>$_POST["editarConfirmacion"],
+							   "categoria"=>$_POST["editarCategoriaServicio"],
+							   "folio"=>$_POST["EditarnuevoFolio"],
+					           "id_vendedor"=>$_POST["idVendedor"],
+							   "barco"=>$_POST["editarNombreCrucero"],
+							   "imgBarco"=>$_POST["imgBarco"],
+								"idRuta"=>$_POST["editarRuta"],
+							   "imgRuta"=>$_POST["imgRuta"],
+					           "htmlRuta"=>$_POST["editarDatos"],
+							   "idCliente"=>$_POST["editarCliente"],
+								"adultos"=>$_POST["cantidadAdultos"],
+								"menores"=>$_POST["cantidadMenores"],
+					           "nombrePasajeros"=>$_POST["listaPasajeros"],
+							   "fechaInicio"=>$_POST["editarFechaInicio"],
+							   "fechaFinal"=>$_POST["editarFechaFinal"],
+								"habitacion"=>$_POST["editarHabitacion"],
+							   "numHabitacion"=>$_POST["editarNumeroHabitacion"],
+							   "mealPlan"=>$_POST["editarComida"],
+					           "estatus"=>$_POST["editarEstatus"],
+							   "vencimiento"=>$_POST["editarVencimiento"],
+							   "costo"=>$_POST["editarTotalReserva"],
+							   "metodoPago"=>$_POST["editarMetodoPago"],
+							   "codigo"=>$_POST["editarCodigoTransaccion"],
+							   "comentarios"=>$_POST["comentarios"]);
+
+			   	
+			  
+			    	
+			   	$respuesta = ModeloReservas::mdlEditarReserva($tabla, $datos);
+			   	// var_dump($respuesta);
+
+			   	if($respuesta == "ok"){
+
+					echo'<script>
+
+						swal({
+							  type: "success",
+							  title: "La reserva ha sido editada correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+
+										window.location = "administrarReservas";
+
+										}
+									})
+
+						</script>';
+
+				}
+					}else{
+
+							echo'<script>
+
+						  swal({
+						  type: "error",
+						  title: "¡La reserva no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "administrarReservas";
+
+							}
+						})
+
+			  	</script>';
+			 }
+			
+
+		}
+
+
+
+	}
 
 
 

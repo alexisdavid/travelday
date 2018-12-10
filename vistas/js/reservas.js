@@ -1,5 +1,16 @@
 
 /*=============================================
+BOTON EDITAR VENTA
+=============================================*/
+$(".tablas").on("click", ".btnEditarReserva", function(){
+
+	var idReserva = $(this).attr("idReserva");
+
+	window.location = "index.php?ruta=editar-reserva&idVenta="+idReserva;
+
+
+})
+/*=============================================
 CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 =============================================*/
 
@@ -148,7 +159,7 @@ $(".formularioReserva").on("change", "select.cantidadAdultos", function(){
  			miOption.setAttribute('value','Masculino');
  			elem.appendChild(miOption);
  			var miOption2=document.createElement("option");
- 			miOption2.setAttribute("label","femenino");
+ 			miOption2.setAttribute("label","Femenino");
  			miOption2.setAttribute('value','Femenino');
  			elem.appendChild(miOption2);
  			elem.className = 'form-control genero';

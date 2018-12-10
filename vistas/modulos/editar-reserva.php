@@ -4,9 +4,9 @@
     
     <h1>
       
-     Reservas Crucero
+     Editar Reserva
       
-      <small>Crear reserva</small>
+    
     
     </h1>
 
@@ -26,19 +26,14 @@
     <!-- Default box -->
     <div class="box">
 
-      <div class="box-header with-border">
-
-        <h3 class="box-title">Reservas</h3>
-
-      </div>
-
+      
       <div class="box-body">
 
-        <div class="panel panel-info">
+        <div class="panel panel-danger">
 
           <div class="panel-heading">
 
-            <h2 style="text-align: center;">Crear reservacion</h2>
+            <h2 style="text-align: center;">Editar reservacion</h2>
             
           </div>
 
@@ -51,6 +46,50 @@
           <div class="row">
 
 
+                <?php
+
+                    $item = "id";
+                    $valor = $_GET["idVenta"];
+
+                    $venta = ControladorReservas::ctrMostrarReserva($item, $valor);
+                    // var_dump($venta);
+                     $listaPasajeros = json_decode($venta["nombrePasajeros"], true);
+
+                  
+
+                   $itemUsuario = "id";
+                    $valorUsuario = $venta["id_vendedor"];
+
+                    $vendedor = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
+
+                    $itemCliente = "id";
+                    $valorCliente = $venta["idCliente"];
+
+                    $cliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                    $itemCategoria = "id";
+                    $valorCategoria = $venta["categoria"];
+
+                    $categoria = ControladorCategorias::ctrMostrarCategorias($itemCategoria, $valorCategoria);
+
+
+                    $itemBarco = "id";
+                    $valorBarco = $venta["barco"];
+
+                    $barcos = ControladorBarcos::ctrMostrarBarcos($itemBarco, $valorBarco);
+
+
+                    $itemRuta = "id";
+                    $valorRuta = $venta["idRuta"];
+
+                    $ruta = ControladorRutas::ctrMostrarRutas($itemRuta, $valorRuta);
+                    // var_dump($ruta);
+
+
+                ?>
+
+
+
                        <!-- ENTRADA PARA CONFIRMACION DE PROVEEDOR -->
                       <div class="col-md-4">
 
@@ -60,7 +99,7 @@
                   
                                 <span class="input-group-addon"><i class="fa fa-code "></i></span> 
 
-                                 <input type="text" class="form-control " name="nuevaConfirmacion" placeholder="# Confirmacion" >
+                                 <input type="text" class="form-control" name="editarConfirmacion" value="<?php echo $venta["cProveedor"]; ?>" placeholder="# Confirmacion" >
 
                                </div>
 
@@ -79,23 +118,11 @@
                   
                           <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                           <select class="form-control categoriaServico " id="categoriaServico" name="categoriaServicio" required>
+                           <select class="form-control categoriaServico " id="categoriaServico" name="editarCategoriaServicio" readonly required>
                       
-                          <option value="">Selecionar categoría</option>
+                           <option value="<?php echo $categoria["id"]; ?>"><?php echo $categoria["categoria"]; ?></option>
 
-                          <?php
-
-                          $item = null;
-                          $valor = null;
-
-                          $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                          foreach ($categorias as $key => $value) {
-                            
-                            echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
-                          }
-
-                          ?>
+                      
       
                            </select>
 
@@ -115,7 +142,7 @@
                         
                                  <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                                 <input type="number" class="form-control" id="nuevoFolio" class="nuevoFolio" name="nuevoFolio" readonly required>
+                                 <input type="number" class="form-control" id="nuevoFolio" class="nuevoFolio" name="EditarnuevoFolio" value="<?php echo $venta["folio"]; ?>" readonly required>
 
                               </div>
                     
@@ -132,9 +159,9 @@
                         
                         <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                        <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
+                        <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $vendedor["nombre"]; ?>" readonly>
 
-                        <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+                    <input type="hidden" name="idVendedor" value="<?php echo $vendedor["id"]; ?>">
 
                       </div>
 
@@ -153,9 +180,9 @@
                   
                           <span class="input-group-addon"><i class="fa fa-ship"></i></span> 
 
-                           <select class="form-control nombreCrucero" id="nombreCrucero" name="nombreCrucero" required>
+                           <select class="form-control nombreCrucero" id="nombreCrucero" name="editarNombreCrucero" required>
                       
-                          <option value="">Selecionar Barco</option>
+                          <option value="<?php echo $barcos["id"]; ?>"><?php echo $barcos["nombre"]; ?></option>
 
                           <?php
 
@@ -169,12 +196,14 @@
                             echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
 
                           }
-                          echo ' <input type="hidden" id="imgBarco" name="imgBarco">';
+                          echo ' <input type="hidden" id="imgBarco" name="imgBarco" value="'.$barcos["imagen"].'">';
+
 
                         
 
                           ?>
-      
+
+
                            </select>
 
                           </div>
@@ -194,9 +223,9 @@
                   
                           <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                           <select class="form-control ruta " id="ruta" name="ruta" required>
+                           <select class="form-control ruta " id="ruta" name="editarRuta" required>
                       
-                          <option value="">Selecionar Ruta</option>
+                          <option value="<?php echo $ruta["id"]; ?>"><?php echo $ruta["descripcion"]; ?></option>
 
                           <?php
 
@@ -210,15 +239,17 @@
                             echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
 
                           }
-                           echo ' <input type="hidden" id="imgRuta" name="imgRuta">';
-                            echo ' <input type="hidden" id="htmlRuta" name="htmlRuta">';
-
+                          
 
                           ?>
+
       
                            </select>
 
+
                           </div>
+                          <input type="hidden" id="htmlRuta" name="editarDatos" value='<?php echo $ruta["html"]; ?>'>
+                          <input type="hidden" id="imgRuta"  name="imgRuta" value='<?php echo $ruta["imagen"]; ?>'>
 
                         </div>
 
@@ -238,9 +269,9 @@
                             
                             <span class="input-group-addon"><i class="fa fa-users"></i></span>
                             
-                            <select class="form-control" id="seleccionarCliente" name="cliente" required>
+                            <select class="form-control" id="seleccionarCliente" name="editarCliente" required>
 
-                            <option value="">Seleccionar cliente</option>
+                            <option value="<?php echo $cliente["id"]; ?>"><?php echo $cliente["email"]; ?></option>
 
                             <?php
 
@@ -284,7 +315,7 @@
 
                                  <select name="cantidadAdultos" class="form-control input-md cantidadAdultos" id="cantidadAdultos" required>
 
-                                    <option value="">Adultos</option>
+                                   <option value="<?php echo $venta["adultos"]; ?>"><?php echo $venta["adultos"]; ?></option>
                                     <option value=1>1</option>
                                     <option value=2>2</option>
                                     <option value=3>3</option>
@@ -317,9 +348,10 @@
                                  <span class="input-group-addon"><i class="fa fa-users"></i></span>
                                  
 
-                                 <select name="cantidadMenores" class="form-control input-md cantidadMenores" id="cantidadMenores" disabled >
+                                 <select name="cantidadMenores" class="form-control input-md cantidadMenores" id="cantidadMenores">
 
-                                    <option value="0">0</option>
+                                     <option value="<?php echo $venta["menores"]; ?>"><?php echo $venta["menores"]; ?></option>
+
                                     <option value=1>1</option>
                                     <option value=2>2</option>
                                     <option value=3>3</option>
@@ -336,29 +368,36 @@
 
                     </div>
 
-           
                 
                     <!--=====================================
                     ENTRADA NOMBRES
                     ======================================--> 
-             <div id="mostrar" class="mostrar" style="display:none;">
+             <div id="mostrar" class="mostrar">
                      <div class="col-md-5">
 
                         <div class="form-group">
 
-                          <label for="">Nombre pasajeros adultos:</label>
+                          <label for="">Nombre pasajeros:</label>
 
                              <div class="input-group nombrePasajeros ">
                         
                                 <span class="input-group-addon "><i class="fas fa-user-alt"></i></i></span>
-
+ 
 
                                     <div id="pasajeros">
-                                        
 
-
+                                      <?php foreach ($listaPasajeros as $key => $item)
+                                      {
                                       
-                         
+                                      echo '<input type="text" class="form-control pasajero" name="nombre" value="'.$item["nombre"].'" >';
+
+                                      echo "<br>";
+                                       
+
+                                      }
+
+                                      ?>
+                                   
                                    </div>
                                     <input type="hidden" id="listaPasajeros" name="listaPasajeros">
 
@@ -383,6 +422,17 @@
                                 <span class="input-group-addon "><i class="fas fa-birthday-cake"></i></span>
 
                                     <div id="nacimiento">
+                                       <?php foreach ($listaPasajeros as $key => $item)
+                                      {
+                                      
+                                      echo '<input type="text" class="form-control nacimiento"  value="'.$item["nacimiento"].'" >';
+                                      echo "<br>";
+                                       
+
+                                      }
+
+                                      ?>
+                                   
                                         
 
                                       
@@ -409,6 +459,17 @@
 
                                     <div id="generosPasajeros">
 
+                                        <?php foreach ($listaPasajeros as $key => $item)
+                                      {
+                                      
+                                      echo '<input type="text" class="form-control genero "  value="'.$item["genero"].'" >';
+                                      echo "<br>";
+                                       
+
+                                      }
+
+                                      ?>
+                                   
                                       
                                        
                                    </div>
@@ -510,7 +571,8 @@
                         
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                                <input type="text" class="form-control input-md inicio" name="fechaInicio" placeholder="Fecha de incio " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                                
+                                <input type="text" class="form-control input-md inicio" name="editarFechaInicio" placeholder="Fecha de incio " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask value="<?php echo $venta["fechaInicio"]; ?>"required>
 
                              </div>
                     
@@ -531,7 +593,7 @@
                         
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                                <input type="text" class="form-control input-md" name="fechaFinal" placeholder="Fecha de terminacion " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                                <input type="text" class="form-control input-md" name="editarFechaFinal" placeholder="Fecha de terminacion " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask value="<?php echo $venta["fechaFinal"]; ?>" required>
 
                              </div>
                     
@@ -552,7 +614,7 @@
                         
                                 <span class="input-group-addon"><i class="fas fa-person-booth"></i></span> 
 
-                                <input type="text" class="form-control input-md" name="nuevaHabitacion" placeholder="Habitacion" required>
+                                <input type="text" class="form-control input-md" name="editarHabitacion" value="<?php echo $venta["habitacion"]; ?>" required>
 
                              </div>
                     
@@ -574,7 +636,7 @@
                         
                                 <span class="input-group-addon"><i class="fas fa-sort-numeric-up"></i></span> 
 
-                                <input type="text" class="form-control input-md" name="nuevoNumeroHabitacion" placeholder="# habitacion" required>
+                                <input type="text" class="form-control input-md" name="editarNumeroHabitacion" value="<?php echo $venta["numHabitacion"]; ?>" required>
 
                              </div>
                     
@@ -595,7 +657,7 @@
                         
                                 <span class="input-group-addon"><i class="fas fa-utensils"></i></span> 
 
-                                <input type="text" class="form-control input-md" name="nuevaComida" placeholder="comidas" required>
+                                <input type="text" class="form-control input-md" name="editarComida" value="<?php echo $venta["mealPlan"]; ?>"required>
 
                              </div>
                     
@@ -616,8 +678,8 @@
                         
                                 <span class="input-group-addon"><i class="fas fa-spinner"></i></span> 
 
-                                <select name="estatus" id="estatus" class="form-control input-md estatus" >
-                                   <option value="">seleccione una opcion</option>
+                                <select name="editarEstatus" id="estatus" class="form-control input-md estatus" >
+                                   <option value="<?php echo $venta["estatus"]; ?>"><?php echo $venta["estatus"]; ?></option>
                                     <option value=" activo">activo</option>
                                     <option value="inactivo">inactivo</option>
                                 </select>
@@ -642,13 +704,14 @@
                         
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                                <input type="text" class="form-control input-md" name="nuevoVencimiento" placeholder="vencimiento " data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                                <input type="text" class="form-control input-md" name="editarVencimiento" value="<?php echo $venta["vencimiento"]; ?>" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
                              </div>
                     
                        </div>
 
                     </div>
+
                      <hr>
                      <!--=====================================
                   ENTRADA IMPUESTOS Y TOTAL
@@ -679,7 +742,7 @@
                            
                               <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
 
-                              <input type="number" min="1" class="form-control" id="nuevoTotalVenta" name="nuevoTotalReserva" placeholder="00000"  required>
+                              <input type="number" min="1" class="form-control" id="nuevoTotalVenta" name="editarTotalReserva" value="<?php echo $venta["costo"]; ?>"  required>
                               
                         
                             </div>
@@ -704,8 +767,8 @@
                     
                      <div class="input-group">
                   
-                      <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
-                        <option value="">Seleccione método de pago</option>
+                      <select class="form-control" id="nuevoMetodoPago" name="editarMetodoPago" required>
+                       <option value="<?php echo $venta["metodoPago"]; ?>"><?php echo $venta["metodoPago"]; ?></option>
                         <option value="oxxo">Oxxo</option>
                         <option value="Paypal">paypal</option>
                         <option value="tarjetaCredito">Tarjeta Crédito</option>
@@ -720,7 +783,7 @@
                         
                     <div class="input-group ">
                          
-                      <input type="text" class="form-control " id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción"  required>
+                      <input type="text" class="form-control " id="nuevoCodigoTransaccion" name="editarCodigoTransaccion" value="<?php echo $venta["codigo"]; ?>"  required>
                            
                       <span class="input-group-addon "><i class="fa fa-lock"></i></span>
 
@@ -746,7 +809,7 @@
                                 <span class="input-group-addon"><i class="fas fa-comments"></i></span> 
 
                                 
-                              <textarea class="form-control" id="comentarios" name="comentarios" rows="3"></textarea>
+                              <textarea class="form-control" id="comentarios" name="comentarios"  rows="3"><?php echo $venta["comentarios"]; ?></textarea>
                              </div>
                     
                        </div>
@@ -762,17 +825,15 @@
               </div>
 
   
-       </div>
+            </div>
                 
               </form>
-
-              <?php
-                  $crearReserva = new ControladorReservas();
-                  $crearReserva -> ctrCrearReserva();
+                  <?php
+                  $editarReserva = new ControladorReservas();
+                  $editarReserva -> ctrEditarReserva();
                ?>
 
 
-         
          </div>
 
         </div>
@@ -785,293 +846,3 @@
   </section>
  
 </div>
-<!--=====================================
-MODAL AGREGAR CLIENTE
-======================================-->
-
-<div id="modalAgregarCliente" class="modal fade" role="dialog">
-  
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <form role="form" method="post">
-
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Agregar cliente</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL DOCUMENTO RFC -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar rfc" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL EMAIL -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
-
-                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL TELÉFONO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
-
-              </div>
-
-            </div>
-
-             <!-- ENTRADA PARA EL TELÉFONO2 -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoTelefono2" placeholder="Ingresar teléfono celular" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
-
-              </div>
-
-            </div>
-  
-          </div>
-
-        </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-          <button type="submit" class="btn btn-primary">Guardar cliente</button>
-
-        </div>
-
-      </form>
-
-      <?php
-        $crearCliente = new ControladorClientes();
-        $crearCliente -> ctrCrearCliente();
-      ?>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!--=====================================
-MODAL AGREGAR CLIENTE
-======================================-->
-
-<div id="modalAgregarCliente" class="modal fade" role="dialog">
-  
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <form role="form" method="post">
-
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Agregar cliente</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL DOCUMENTO RFC -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar rfc" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL EMAIL -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
-
-                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL TELÉFONO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
-
-              </div>
-
-            </div>
-
-             <!-- ENTRADA PARA EL TELÉFONO2 -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoTelefono2" placeholder="Ingresar teléfono celular" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
-
-              </div>
-
-            </div>
-  
-          </div>
-
-        </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-
-          <button type="submit" class="btn btn-primary">Guardar cliente</button>
-
-        </div>
-
-      </form>
-
-      <?php
-        $crearCliente = new ControladorClientes();
-        $crearCliente -> ctrCrearCliente();
-      ?>
-
-    </div>
-
-  </div>
-
-</div>
-
