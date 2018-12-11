@@ -24,11 +24,11 @@
 
       <div class="box-header with-border">
   
-        <a href="reservas-crucero">
+        <a href="administrarReservas">
 
-          <button class="btn btn-primary">
+          <button class="btn btn-warning">
             
-            Agregar venta
+            Regresar
 
           </button>
 
@@ -51,7 +51,7 @@
            <th>ruta</th>
            <th>fechaInicio</th>
            <th>fechaFinal</th> 
-           <th>MetodoPago</th>
+           <th>estatus</th>
             <th>comentarios</th>
            <th>Acciones</th>
 
@@ -66,19 +66,23 @@
 
 $item = null;
 $valor = null;
-$orden = "id";
-
-$respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orden);
 
 
+$respuesta = ControladorReservas::ctrMostrarReserva($item, $valor);
+
+$contador = 0;
 
           foreach ($respuesta as $key => $value) {
+$contador = $contador +1;
 
-            
-            if ($value['estatus'] == " activo"){
+            if ($value['estatus'] == 'inactivo') {
+
+              
+      
+           
                 echo '<tr>
 
-                 <td>'.($key+1).'</td>
+                 <td>'.($contador).'</td>
                   <td>'.$value["folio"].'</td>';
 
                   $itemCliente = "id";
@@ -107,7 +111,7 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
                   echo '<td>'.$value["fechaFinal"].'</td>';
 
                
-                    echo '<td>'.$value['metodoPago'].'-'.$value['codigo'].'</td>';
+                    echo '<td><button class="btn btn-danger">inactivo</button></td>';
 
 
                   
@@ -131,7 +135,7 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
 
       
 
-            }
+             }
 
 
 
@@ -144,19 +148,7 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
         </tbody>
 
        </table>
-       <div class="box-header with-border">
-  
-        <a href="historial-reservas">
-
-          <button class="btn btn-danger">
-            
-            Historial de reservas
-
-          </button>
-
-        </a>
-
-      </div>
+       
 
     
       </div>

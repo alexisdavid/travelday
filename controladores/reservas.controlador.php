@@ -3,6 +3,19 @@
 class ControladorReservas{
 
 
+	/*=============================================
+	MOSTRAR PRODUCTOS
+	=============================================*/
+
+	static public function ctrMostrarReservasActivas($item, $valor, $orden){
+
+		$tabla = "reservas";
+
+		$respuesta = ModeloReservas::mdlMostrarReservasActivas($tabla, $item, $valor, $orden);
+
+		return $respuesta;
+
+	}
 
 	/*=============================================
 	MOSTRAR RESERVAS

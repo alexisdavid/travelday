@@ -3,12 +3,11 @@
 require_once "conexion.php";
 
 class ModeloReservas{
-
 	/*=============================================
-	MOSTRAR RESERVAS
+	MOSTRAR PRODUCTOS
 	=============================================*/
 
-	static public function mdlMostrarReservas($tabla, $item, $valor){
+	static public function mdlMostrarReservasActivas($tabla, $item, $valor, $orden){
 
 		if($item != null){
 
@@ -22,7 +21,39 @@ class ModeloReservas{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	MOSTRAR RESERVAS
+	=============================================*/
+
+	static public function mdlMostrarReservas($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id ASC");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla  ORDER BY id ASC");
 
 			$stmt -> execute();
 
