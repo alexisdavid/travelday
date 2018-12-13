@@ -1,5 +1,6 @@
+var perfilOculto = $("#perfilOculto").val();
 $('.tablaBarcos').DataTable( {
-    "ajax": "ajax/datatable-barcos.ajax.php",
+    "ajax": "ajax/datatable-barcos.ajax.php?perfilOculto="+perfilOculto,
     "deferRender": true,
   "retrieve": true,
   "processing": true,

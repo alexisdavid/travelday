@@ -57,6 +57,7 @@
        
 
        </table>
+        <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
 
       </div>
 

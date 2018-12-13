@@ -1,5 +1,6 @@
+var perfilOculto = $("#perfilOculto").val();
 $('.tablaRutas').DataTable( {
-    "ajax": "ajax/datatable-rutas.ajax.php",
+    "ajax": "ajax/datatable-rutas.ajax.php?perfilOculto="+perfilOculto,
     "deferRender": true,
 	"retrieve": true,
 	"processing": true,

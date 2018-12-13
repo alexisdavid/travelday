@@ -215,6 +215,32 @@ class ControladorReservas{
 
 	}
 
+	/*=============================================
+	MOSTRAR SUMA VENTAS
+	=============================================*/
+
+	static public function ctrSumaTotalResevas(){
+
+		$tabla = "reservas";
+
+		$respuesta = ModeloReservas::mdlMostrarSumaReservas($tabla);
+
+		return $respuesta;
 
 
+
+}
+	/*=============================================
+	RANGO FECHAS
+	=============================================*/	
+
+	static public function ctrRangoFechasVentas($fechaInicial, $fechaFinal){
+
+		$tabla = "reservas";
+
+		$respuesta = ModeloReservas::mdlRangoFechasVentas($tabla, $fechaInicial, $fechaFinal);
+
+		return $respuesta;
+		
+	}
 }

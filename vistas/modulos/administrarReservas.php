@@ -33,6 +33,18 @@
           </button>
 
         </a>
+        
+
+         <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+           
+            <span>
+              <i class="fa fa-calendar"></i> Rango de fecha
+            </span>
+
+            <i class="fa fa-caret-down"></i>
+
+         </button>
+
 
       </div>
 
@@ -44,7 +56,7 @@
          
          <tr>
            
-           <th style="width:10px">#</th>
+           
            <th>Folio</th>
            <th>cliente</th>
            <th>barco</th>
@@ -61,14 +73,23 @@
 
         <tbody>
 
+        
         <?php
 
+          if(isset($_GET["fechaInicial"])){
 
-$item = null;
-$valor = null;
-$orden = "id";
+            $fechaInicial = $_GET["fechaInicial"];
+            $fechaFinal = $_GET["fechaFinal"];
 
-$respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orden);
+          }else{
+
+            $fechaInicial = null;
+            $fechaFinal = null;
+
+          }
+
+          $respuesta = ControladorReservas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);
+
 
 
 
@@ -78,7 +99,7 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
             if ($value['estatus'] == " activo"){
                 echo '<tr>
 
-                 <td>'.($key+1).'</td>
+               
                   <td>'.$value["folio"].'</td>';
 
                   $itemCliente = "id";
@@ -118,12 +139,14 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
 
                     <div class="btn-group">
                         
-                      <button class="btn btn-info fa-1x imprimirReserva" idReserva="'.$value["id"].'"><i class="fas fa-print"></i></button>
+                      <button class="btn btn-info fa-1x imprimirReserva" idReserva="'.$value["id"].'"><i class="fas fa-print"></i></button>';
+                       if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial" ){
+                          echo'
 
-                      <button class="btn btn-warning btnEditarReserva" idReserva="'.$value["id"].'"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-warning btnEditarReserva" idReserva="'.$value["id"].'"><i class="fas fa-edit"></i></button>';}
 
 
-                    </div>  
+                    echo '</div>  
 
                   </td>
 
@@ -144,6 +167,9 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
         </tbody>
 
        </table>
+       <?php
+       if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial" ){
+                          echo'
        <div class="box-header with-border">
   
         <a href="historial-reservas">
@@ -156,7 +182,9 @@ $respuesta = ControladorReservas::ctrMostrarReservasActivas($item, $valor, $orde
 
         </a>
 
-      </div>
+      </div>';
+    }
+      ?>
 
     
       </div>

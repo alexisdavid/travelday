@@ -74,9 +74,12 @@
                     <td>
                       <div class="btn-group">
                           
-                        <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="far fa-edit"></i></button>
-                        <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
-                      </div>  
+                        <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="far fa-edit"></i></button>';
+                        if($_SESSION["perfil"] == "Administrador"){
+                          echo'
+                        <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                      }
+                      echo'</div>  
                     </td>
                   </tr>';
           
