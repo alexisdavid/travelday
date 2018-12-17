@@ -101,9 +101,7 @@ class ControladorEmpleado{
 
 	}
 
-	/*=============================================
-	MOSTRAR EMPLEADOS
-	=============================================*/
+	
 
 	static public function ctrMostrarEmpleado($item, $valor){
 
@@ -114,10 +112,6 @@ class ControladorEmpleado{
 		return $respuesta;
 	
 	}
-	/*=============================================
-	EDITAR MPLEADOS
-	=============================================*/
-
 	static public function ctrEditarEmpleado(){
 
 		if(isset($_POST["editarEmpleado"])){

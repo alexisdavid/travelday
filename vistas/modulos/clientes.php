@@ -98,9 +98,6 @@
 
 </div>
 
-<!--=====================================
-MODAL AGREGAR CLIENTE
-======================================-->
 
 <div id="modalAgregarCliente" class="modal fade" role="dialog">
   
@@ -110,10 +107,7 @@ MODAL AGREGAR CLIENTE
 
       <form role="form" method="post">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-
+     
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -122,16 +116,13 @@ MODAL AGREGAR CLIENTE
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
+      
 
         <div class="modal-body">
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
+       
             <div class="form-group">
               
               <div class="input-group">
@@ -144,8 +135,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL DOCUMENTO RFC -->
-            
+       
             <div class="form-group">
               
               <div class="input-group">
@@ -158,8 +148,6 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -172,8 +160,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL EMAIL -->
-            
+  
             <div class="form-group">
               
               <div class="input-group">
@@ -186,8 +173,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL TELÉFONO -->
-            
+        
             <div class="form-group">
               
               <div class="input-group">
@@ -200,8 +186,6 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-             <!-- ENTRADA PARA EL TELÉFONO2 -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -217,10 +201,6 @@ MODAL AGREGAR CLIENTE
           </div>
 
         </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
 
         <div class="modal-footer">
 

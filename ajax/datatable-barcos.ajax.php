@@ -26,27 +26,15 @@ class TablaBarco{
 
 		  for($i = 0; $i < count($barco); $i++){
 
-		  	/*=============================================
- 	 		TRAEMOS LA IMAGEN
-  			=============================================*/ 
-
 		  	$imagen = "<img src='".$barco[$i]["imagen"]."' width='40px'>";
 
-		  	/*=============================================
- 	 		TRAEMOS LA CATEGORÍA
-  			=============================================*/ 
-
+		  	
 		  	$item = "id";
 		  	$valor = $barco[$i]["idCategoria"];
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
 		  
-
-		  	/*=============================================
- 	 		TRAEMOS LAS ACCIONES
-  			=============================================*/ 
-
   			if(isset($_GET["perfilOculto"]) && $_GET["perfilOculto"] == "Especial"){
 
 		  	$botones =  "<div class='btn-group'><button class='btn btn-info btnDetallesBarco' idBarco='".$barco[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-calendar-plus'></i></button><button class='btn btn-warning btnEditarBarco' idBarco='".$barco[$i]["id"]."' data-toggle='modal' data-target='#modalEditarBarco'><i class='far fa-edit'></i></button>"; 
@@ -86,10 +74,6 @@ class TablaBarco{
 
 
 }
-
-/*=============================================
-ACTIVAR TABLA DE PRODUCTOS
-=============================================*/ 
 $activarBarco = new TablaBarco();
 $activarBarco -> mostrarTablaBarco();
 

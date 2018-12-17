@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-12-2018 a las 06:05:28
+-- Tiempo de generación: 17-12-2018 a las 18:09:37
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -104,8 +104,7 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`id`, `nombre`, `documento`, `direccion`, `email`, `telefono`, `telefono2`, `fecha`) VALUES
 (1, 'Juan Villegas', '81611239', 'ALFREDO V. BONFIL', 'duartebonfil@gmail.com', '(998) 243-2827', '(998) 263-2345', '2018-10-31 01:17:57'),
 (2, 'pedro', 'ducj721121mma', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 'alexisduarte1512@gmail.com', '(333) 333-3333', '(333) 333-3333', '2018-11-15 03:31:31'),
-(3, 'papa', '223444', 'lkdkfkfl', 'correo@prueba.com', '(999) 999-9999', '(999) 999-9999', '2018-12-03 17:12:50'),
-(4, 'pape', 'ducj721121mma', 'c. leona vicario smz 308 lt 3  alfredo v. bonfil', 'alexisduarte1512@gmail.com', '(999) 999-9999', '(999) 999-9999', '2018-11-21 03:49:26');
+(3, 'papa', '223444', 'lkdkfkfl', 'correo@prueba.com', '(999) 999-9999', '(999) 999-9999', '2018-12-03 17:12:50');
 
 -- --------------------------------------------------------
 
@@ -269,12 +268,12 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id`, `cProveedor`, `categoria`, `folio`, `id_vendedor`, `barco`, `imgBarco`, `idRuta`, `imgRuta`, `htmlRuta`, `idCliente`, `adultos`, `menores`, `nombrePasajeros`, `fechaInicio`, `fechaFinal`, `habitacion`, `numHabitacion`, `mealPlan`, `estatus`, `vencimiento`, `costo`, `metodoPago`, `codigo`, `comentarios`, `fecha`) VALUES
-(10, '1734937445', 4, 401, 63, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 1, 1, 0, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2015/12/15', '2011/11/11', 'habitacion', 'cqefq', 'qcqe', 'inactivo', '2012/12/12', 132334, 'Paypal', '24545', 'otro comentario', '2018-12-02 23:50:35'),
-(11, '12574555', 4, 402, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 4, 1, 0, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2011/11/11', '2011/11/11', 'dbe', 'ebe', 'erve', ' activo', '2022/02/22', 34564, 'tarjetaDebito', '5245', 'ervbe', '2018-12-03 03:41:50'),
+(10, '1734937445', 4, 401, 63, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 1, 1, 0, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2015/12/15', '2011/11/11', 'habitacion', 'cqefq', 'qcqe', ' activo', '2012/12/12', 132334, 'Paypal', '24545', 'otro comentario', '2018-12-11 23:50:35'),
+(11, '12574555', 4, 402, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 3, 1, 0, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2011/11/11', '2011/11/11', 'dbe', 'ebe', 'erve', ' activo', '2022/02/22', 34564, 'tarjetaDebito', '5245', 'ervbe', '2018-12-03 03:41:50'),
 (12, '123456864322', 4, 403, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 3, 2, 3, '[{\"nombre\":\"juan perez gonzales\",\"nacimiento\":\"1991-12-15\",\"genero\":\"hombre\"}]', '2011/11/11', '2071/06/26', 'dva', 'khvkv', 'blscbl', ' activo', '2011/02/03', 234450, 'tarjetaCredito', '345636', 'comment', '2018-12-06 01:22:27'),
-(13, 'pendiente', 1, 101, 1, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 1, 1, 0, '[{\"nombre\":\"juan\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Masculino\"}]', '1991/12/15', '1991/12/12', 'sfcc', 'hi f', 'ojbvb', ' activo', '2042/04/05', 0, 'tarjetaCredito', '1341', 'hget', '2018-12-06 01:48:42'),
+(13, 'pendiente', 1, 101, 1, 3, 'vistas/img/productos/103/997.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 1, 1, 0, '[{\"nombre\":\"juan\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Masculino\"}]', '1991/12/15', '1991/12/12', 'sfcc', 'hi f', 'ojbvb', 'inactivo', '2042/04/05', 1200, 'tarjetaCredito', '1341', 'hget', '2018-12-06 01:48:42'),
 (14, '777564264', 4, 404, 1, 6, 'vistas/img/productos/104/625.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 2, 2, 3, '[{\"nombre\":\"alexis duarte\",\"nacimiento\":\"1991-11-12\",\"genero\":\"Masculino\"},{\"nombre\":\"maria juarez\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Femenino\"},{\"nombre\":\"pedro\",\"nacimiento\":\"1111-11-11\",\"genero\":\"Masculino\"},{\"nombre\":\"juan\",\"nacimiento\":\"1111-11-11\",\"genero\":\"Masculino\"},{\"nombre\":\"maria\",\"nacimiento\":\"1111-11-11\",\"genero\":\"Masculino\"}]', '2011/11/11', '2011/11/11', '1111111', 'dcwc', 'qeccccc', ' activo', '2011/11/11', 230, 'tarjetaCredito', '311', 'wvc2w', '2018-12-09 03:59:29'),
-(15, 'pendiente', 4, 405, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 3, 1, 1, '[{\"nombre\":\"JUAN\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Masculino\"},{\"nombre\":\"PEDRO\",\"nacimiento\":\"1999-12-15\",\"genero\":\"Masculino\"}]', '2012/12/12', '2012/02/12', '111', 'QECQ11', 'ADCAC', ' activo', '2012/12/12', 2000, 'tarjetaCredito', '2345533', 'CSAS', '2018-12-10 01:36:23');
+(15, 'pendiente', 4, 405, 1, 8, 'vistas/img/productos/401/553.jpg', 2, 'vistas/img/rutas/102/980.jpg', '<table class=\"table\">\r\n  <thead class=\"thead-dark\" >\r\n    <tr>\r\n      <th scope=\"col\">#</th>\r\n      <th scope=\"col\">First</th>\r\n      <th scope=\"col\">Last</th>\r\n      <th scope=\"col\">Handle</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope', 3, 1, 1, '[{\"nombre\":\"JUAN\",\"nacimiento\":\"1991-12-15\",\"genero\":\"Masculino\"},{\"nombre\":\"PEDRO\",\"nacimiento\":\"1999-12-15\",\"genero\":\"Masculino\"}]', '2012/12/12', '2012/02/12', '111', 'QECQ11', 'ADCAC', ' activo', '2012/12/12', 2000, 'oxxo', '2345533', 'CSAS', '2018-12-11 01:36:23');
 
 -- --------------------------------------------------------
 
@@ -327,10 +326,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-12-09 20:59:31', '2018-12-10 01:59:31'),
+(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2018-12-16 15:50:54', '2018-12-16 20:50:54'),
 (57, 'Juan Fernando Urrego', 'juan', '$2a$07$asxx54ahjppf45sd87a5auwRi.z6UsW7kVIpm0CUEuCpmsvT2sG6O', 'Administrador', 'vistas/img/usuarios/juan/461.jpg', 1, '2018-10-22 22:25:02', '2018-10-23 03:25:02'),
-(58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2017-12-21 12:07:39', '2017-12-21 17:07:39'),
-(63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/prueba/550.jpg', 1, '2018-12-08 10:10:14', '2018-12-08 15:10:14');
+(58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2018-12-16 15:50:28', '2018-12-16 20:50:28'),
+(63, 'prueba2', 'prueba', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/prueba/550.jpg', 1, '2018-12-16 15:50:42', '2018-12-16 20:50:42');
 
 --
 -- Índices para tablas volcadas
@@ -404,7 +403,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`

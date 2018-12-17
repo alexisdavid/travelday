@@ -9,7 +9,8 @@
 			if($_SESSION["perfil"] == "Administrador"){
 
 			
-			echo '<li class="active">
+			echo '
+			<li class="active">
 
 				<a href="inicio">
 
@@ -17,6 +18,51 @@
 					<span>Inicio</span>
 
 				</a>
+
+			</li>
+
+				<li class="treeview">
+
+								<a href="#">
+
+					<i class="fas fa-folder-open"></i>
+					
+					<span>Cobranza</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+
+						<a href="pendientesCobrar">
+							
+							<i class="fas fa-edit"></i>
+							<span>Cuentas x cobrar</span>
+
+						</a>
+
+					</li>
+
+					<li style="width: 100%">
+
+						<a href="pendientesPagar">
+							
+							<i class="fas fa-edit"></i>
+							<span>Cuentas x pagar</span>
+
+						</a>
+
+					</li>
+
+
+				</ul>
 
 			</li>
 

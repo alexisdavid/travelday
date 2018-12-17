@@ -67,9 +67,6 @@
 
 </div>
 
-<!--=====================================
-MODAL AGREGAR BARCO
-======================================-->
 
 <div id="modalAgregarBarco" class="modal fade" role="dialog">
   
@@ -79,10 +76,6 @@ MODAL AGREGAR BARCO
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -90,10 +83,6 @@ MODAL AGREGAR BARCO
           <h4 class="modal-title">Agregar Barco</h4>
 
         </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
 
         <div class="modal-body">
 
@@ -130,8 +119,7 @@ MODAL AGREGAR BARCO
               </div>
 
             </div>
-              <!-- ENTRADA PARA EL CÓDIGO -->
-            
+          
             <div class="form-group">
               
               <div class="input-group">
@@ -144,8 +132,7 @@ MODAL AGREGAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
+         
             <div class="form-group">
               
               <div class="input-group">
@@ -159,8 +146,7 @@ MODAL AGREGAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA COMPAÑIA -->
-            
+         
             <div class="form-group">
               
               <div class="input-group">
@@ -173,8 +159,7 @@ MODAL AGREGAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA PASAJEROS -->
-            
+          
             <div class="form-group">
               
               <div class="input-group">
@@ -186,8 +171,7 @@ MODAL AGREGAR BARCO
               </div>
 
             </div>
-            <!-- ENTRADA PARA LA CONSTRUCCION -->
-            
+         
             <div class="form-group">
               
               <div class="input-group">
@@ -199,9 +183,6 @@ MODAL AGREGAR BARCO
               </div>
 
             </div>
-
-
-            <!-- ENTRADA PARA TONELAJE -->
             
             <div class="form-group">
               
@@ -215,8 +196,6 @@ MODAL AGREGAR BARCO
 
             </div>
 
-
-            <!-- ENTRADA PARA LA TRIPULACION -->
             
             <div class="form-group">
               
@@ -230,8 +209,6 @@ MODAL AGREGAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA DESCRIPCION -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -245,8 +222,6 @@ MODAL AGREGAR BARCO
             </div>
 
 
-             <!-- ENTRADA PARA VELOCIDAD -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -259,8 +234,6 @@ MODAL AGREGAR BARCO
 
             </div>
 
-             <!-- ENTRADA PARA EL CUBIERTAS -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -273,7 +246,6 @@ MODAL AGREGAR BARCO
 
             </div>
 
-             <!-- ENTRADA PARA LARGO -->
             
             <div class="form-group">
               
@@ -288,8 +260,6 @@ MODAL AGREGAR BARCO
 
             </div>
 
-             <!-- ENTRADA PARA ANCHO -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -301,8 +271,6 @@ MODAL AGREGAR BARCO
               </div>
 
             </div>
-
-            <!-- ENTRADA PARA SUBIR FOTO -->
 
              <div class="form-group">
               
@@ -320,10 +288,6 @@ MODAL AGREGAR BARCO
           </div>
 
         </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
 
         <div class="modal-footer">
 
@@ -353,17 +317,6 @@ MODAL AGREGAR BARCO
 </div>
 
 
-
-
-
-
-
-
-
-<!--=====================================
-MODAL EDITAR BARCO
-======================================-->
-
 <div id="modalEditarBarco" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
@@ -372,9 +325,6 @@ MODAL EDITAR BARCO
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -384,15 +334,9 @@ MODAL EDITAR BARCO
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
         <div class="modal-body">
 
           <div class="box-body">
-
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
 
             <div class="form-group">
               
@@ -411,7 +355,7 @@ MODAL EDITAR BARCO
 
             </div>
 
-               <!-- ENTRADA PARA EL CÓDIGO -->
+          
             
             <div class="form-group">
               
@@ -425,8 +369,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -440,7 +382,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA COMPAÑIA -->
             
             <div class="form-group">
               
@@ -454,8 +395,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA PASAJEROS -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -467,7 +406,7 @@ MODAL EDITAR BARCO
               </div>
 
             </div>
-            <!-- ENTRADA PARA LA CONSTRUCCION -->
+           
             
             <div class="form-group">
               
@@ -481,8 +420,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-
-            <!-- ENTRADA PARA TONELAJE -->
             
             <div class="form-group">
               
@@ -495,9 +432,6 @@ MODAL EDITAR BARCO
               </div>
 
             </div>
-
-
-            <!-- ENTRADA PARA LA TRIPULACION -->
             
             <div class="form-group">
               
@@ -511,8 +445,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-            <!-- ENTRADA PARA DESCRIPCION -->
-            
             <div class="form-group">
               
               <div class="input-group">
@@ -524,9 +456,6 @@ MODAL EDITAR BARCO
               </div>
 
             </div>
-
-
-             <!-- ENTRADA PARA VELOCIDAD -->
             
             <div class="form-group">
               
@@ -540,7 +469,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-             <!-- ENTRADA PARA EL CUBIERTAS -->
             
             <div class="form-group">
               
@@ -554,7 +482,6 @@ MODAL EDITAR BARCO
 
             </div>
 
-             <!-- ENTRADA PARA LARGO -->
             
             <div class="form-group">
               
@@ -568,8 +495,6 @@ MODAL EDITAR BARCO
               </div>
 
             </div>
-
-             <!-- ENTRADA PARA ANCHO -->
             
             <div class="form-group">
               
@@ -582,8 +507,6 @@ MODAL EDITAR BARCO
               </div>
 
             </div>
-
- <!-- ENTRADA PARA SUBIR FOTO -->
 
              <div class="form-group">
               
@@ -603,10 +526,6 @@ MODAL EDITAR BARCO
 
         </div>
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
@@ -625,9 +544,6 @@ MODAL EDITAR BARCO
 
         ?>   
    
-     
-
-
     </div>
 
   </div>

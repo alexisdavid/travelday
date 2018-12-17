@@ -5,10 +5,7 @@ require_once "../modelos/categorias.modelo.php";
 
 class AjaxCategorias{
 
-	/*=============================================
-	EDITAR CATEGORÍA
-	=============================================*/	
-
+	
 	public $idCategoria;
 
 	public function ajaxEditarCategoria(){
@@ -23,9 +20,6 @@ class AjaxCategorias{
 	}
 }
 
-/*=============================================
-EDITAR CATEGORÍA
-=============================================*/	
 if(isset($_POST["idCategoria"])){
 
 	$categoria = new AjaxCategorias();

@@ -69,9 +69,6 @@
 </div>
 
 
-<!--=====================================
-MODAL AGREGAR PRODUCTO
-======================================-->
 
 <div id="modalAgregarProducto" class="modal fade" role="dialog">
   
@@ -81,9 +78,6 @@ MODAL AGREGAR PRODUCTO
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -93,17 +87,14 @@ MODAL AGREGAR PRODUCTO
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
+        
 
         <div class="modal-body">
 
           <div class="box-body">
 
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
-
+            
             <div class="form-group">
               
               <div class="input-group">
@@ -134,7 +125,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA EL CÓDIGO -->
+           
             
             <div class="form-group">
               
@@ -148,8 +139,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
-
+           
              <div class="form-group">
               
               <div class="input-group">
@@ -162,8 +152,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA STOCK -->
-
+           
              <div class="form-group">
               
               <div class="input-group">
@@ -176,8 +165,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA PRECIO COMPRA -->
-
+           
              <div class="form-group row">
 
                 <div class="col-xs-12 col-sm-6">
@@ -192,7 +180,7 @@ MODAL AGREGAR PRODUCTO
 
                 </div>
 
-                <!-- ENTRADA PARA PRECIO VENTA -->
+                
 
                 <div class="col-xs-12 col-sm-6">
                 
@@ -206,7 +194,7 @@ MODAL AGREGAR PRODUCTO
                 
                   <br>
 
-                  <!-- CHECKBOX PARA PORCENTAJE -->
+                
 
                   <div class="col-xs-6">
                     
@@ -222,7 +210,7 @@ MODAL AGREGAR PRODUCTO
 
                   </div>
 
-                  <!-- ENTRADA PARA PORCENTAJE -->
+                  
 
                   <div class="col-xs-6" style="padding:0">
                     
@@ -240,7 +228,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
+           
 
              <div class="form-group">
               
@@ -258,9 +246,6 @@ MODAL AGREGAR PRODUCTO
 
         </div>
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
 
         <div class="modal-footer">
 
@@ -286,10 +271,6 @@ MODAL AGREGAR PRODUCTO
 </div>
 
 
-<!--=====================================
-MODAL EDITAR PRODUCTO
-======================================-->
-
 <div id="modalEditarProducto" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
@@ -298,9 +279,7 @@ MODAL EDITAR PRODUCTO
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
+      
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -310,16 +289,14 @@ MODAL EDITAR PRODUCTO
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
+        
 
         <div class="modal-body">
 
           <div class="box-body">
 
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+            
 
             <div class="form-group">
               
@@ -337,7 +314,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA EL CÓDIGO -->
+           
             
             <div class="form-group">
               
@@ -351,7 +328,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
+            
 
              <div class="form-group">
               
@@ -365,8 +342,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA STOCK -->
-
+             
              <div class="form-group">
               
               <div class="input-group">
@@ -379,8 +355,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA PRECIO COMPRA -->
-
+            
              <div class="form-group row">
 
                 <div class="col-xs-12 col-sm-6">
@@ -395,7 +370,7 @@ MODAL EDITAR PRODUCTO
 
                 </div>
 
-                <!-- ENTRADA PARA PRECIO VENTA -->
+              
 
                 <div class="col-xs-12 col-sm-6">
                 
@@ -409,7 +384,7 @@ MODAL EDITAR PRODUCTO
                 
                   <br>
 
-                  <!-- CHECKBOX PARA PORCENTAJE -->
+                 
 
                   <div class="col-xs-6">
                     
@@ -425,7 +400,7 @@ MODAL EDITAR PRODUCTO
 
                   </div>
 
-                  <!-- ENTRADA PARA PORCENTAJE -->
+                  
 
                   <div class="col-xs-6" style="padding:0">
                     
@@ -443,7 +418,7 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
+            
 
              <div class="form-group">
               
@@ -463,9 +438,7 @@ MODAL EDITAR PRODUCTO
 
         </div>
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+      
 
         <div class="modal-footer">
 

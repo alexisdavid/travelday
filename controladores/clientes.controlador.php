@@ -74,10 +74,7 @@ class ControladorClientes{
 
 	}
 
-	/*=============================================
-	MOSTRAR CLIENTES
-	=============================================*/
-
+	
 	static public function ctrMostrarClientes($item, $valor){
 
 		$tabla = "clientes";
@@ -88,9 +85,7 @@ class ControladorClientes{
 
 	}
 
-	/*=============================================
-	EDITAR CLIENTE
-	=============================================*/
+	
 
 	static public function ctrEditarCliente(){
 
@@ -161,10 +156,7 @@ class ControladorClientes{
 
 	}
 
-	/*=============================================
-	ELIMINAR CLIENTE
-	=============================================*/
-
+	
 	static public function ctrEliminarCliente(){
 
 		if(isset($_GET["idCliente"])){

@@ -6,9 +6,6 @@ require_once "../controladores/reservas.controlador.php";
 require_once "../modelos/reservas.modelo.php";
 
 class AjaxReserva{
-	 /*=============================================
-  GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-  =============================================*/
   public $idCategoria;
 
   public function ajaxCrearCodigoReserva(){
@@ -24,12 +21,6 @@ class AjaxReserva{
 }
 
 
-
-
-
-/*=============================================
-GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-=============================================*/ 
 if(isset($_POST["idCategoria"])){
   $codigoBarco = new AjaxReserva();
   $codigoBarco -> idCategoria = $_POST["idCategoria"];

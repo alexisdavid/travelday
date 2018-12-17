@@ -2,11 +2,6 @@
 
 class ControladorBarcos{
 
-
-	/*=============================================
-	MOSTRAR BARCOS
-	=============================================*/
-
 	static public function ctrMostrarBarcos($item, $valor){
 
 		$tabla = "barcos";
@@ -17,24 +12,13 @@ class ControladorBarcos{
 
 	}
 
-
-	/*=============================================
-	CREAR BARCOS
-	=============================================*/
-
 	static public function ctrCrearBarco(){
-
-		
 
 		if(isset($_POST["nuevoNombreBarco"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreBarco"]) &&
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCompania"]) &&
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"])){
-
-				/*=============================================
-				VALIDAR IMAGEN
-				=============================================*/
 
 			   	$ruta = "vistas/img/productos/default/anonymous.png";
 
@@ -46,23 +30,12 @@ class ControladorBarcos{
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
 
-					/*=============================================
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-					=============================================*/
 
 					$directorio = "vistas/img/productos/".$_POST["nuevoCodigoBarco"];
 
 					mkdir($directorio, 0755);
 
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
-
 					if($_FILES["nuevaImagenBarco"]["type"] == "image/jpeg"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
 
 						$aleatorio = mt_rand(100,999);
 
@@ -79,10 +52,6 @@ class ControladorBarcos{
 					}
 
 					if($_FILES["nuevaImagenBarco"]["type"] == "image/png"){
-
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
 
 						$aleatorio = mt_rand(100,999);
 
@@ -164,14 +133,8 @@ class ControladorBarcos{
 			}
 		}
 
-	}
-
-
-	/*=============================================
-	EDITARBARCOS
-	=============================================*/
-
-	static public function ctrEditarBarco(){
+	}  
+		static public function ctrEditarBarco(){
 
 		if(isset($_POST["editarNombreBarco"])){
 
@@ -179,10 +142,7 @@ class ControladorBarcos{
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCompania"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"])){
 
-		   		/*=============================================
-				VALIDAR IMAGEN
-				=============================================*/
-
+		   	
 			   	$ruta = $_POST["imagenActual"];
 
 			   	if(isset($_FILES["nuevaImagenBarco"]["tmp_name"]) && !empty($_FILES["nuevaImagenBarco"]["tmp_name"])){
@@ -192,15 +152,9 @@ class ControladorBarcos{
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
 
-					/*=============================================
-					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-					=============================================*/
-
+					
 					$directorio = "vistas/img/productos/".$_POST["editarCodigoBarco"];
 
-					/*=============================================
-					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
-					=============================================*/
 
 					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png"){
 
@@ -212,16 +166,11 @@ class ControladorBarcos{
 					
 					}
 					
-					/*=============================================
-					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================*/
+					
 
 					if($_FILES["nuevaImagenBarco"]["type"] == "image/jpeg"){
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
-
+						
 						$aleatorio = mt_rand(100,999);
 
 						$ruta = "vistas/img/productos/".$_POST["editarCodigoBarco"]."/".$aleatorio.".jpg";
@@ -238,9 +187,7 @@ class ControladorBarcos{
 
 					if($_FILES["nuevaImagenBarco"]["type"] == "image/png"){
 
-						/*=============================================
-						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================*/
+						
 
 						$aleatorio = mt_rand(100,999);
 
@@ -321,9 +268,7 @@ class ControladorBarcos{
 		}
 
 	}
-	/*=============================================
-	BORRAR BARCO
-	=============================================*/
+	
 	static public function ctrEliminarBarco(){
 
 		if(isset($_GET["idBarco"])){

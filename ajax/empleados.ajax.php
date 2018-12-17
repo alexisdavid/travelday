@@ -5,10 +5,6 @@ require_once "../modelos/empleados.modelo.php";
 
 class AjaxEmpleados{
 
-	/*=============================================
-	EDITAR EMPLEADO
-	=============================================*/	
-
 	public $idEmpleado;
 
 	public function ajaxEditarEmpleado(){
@@ -24,10 +20,6 @@ class AjaxEmpleados{
 	}
 
 }
-
-/*=============================================
-EDITAR EMPLEADO
-=============================================*/	
 
 if(isset($_POST["idEmpleado"])){
 

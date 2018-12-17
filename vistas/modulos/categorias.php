@@ -93,10 +93,6 @@
 
 </div>
 
-<!--=====================================
-MODAL AGREGAR CATEGORÍA
-======================================-->
-
 <div id="modalAgregarCategoria" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
@@ -105,9 +101,6 @@ MODAL AGREGAR CATEGORÍA
 
       <form role="form" method="post">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -117,15 +110,10 @@ MODAL AGREGAR CATEGORÍA
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
         <div class="modal-body">
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
               
@@ -143,9 +131,6 @@ MODAL AGREGAR CATEGORÍA
 
         </div>
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
 
         <div class="modal-footer">
 
@@ -170,9 +155,6 @@ MODAL AGREGAR CATEGORÍA
 
 </div>
 
-<!--=====================================
-MODAL EDITAR CATEGORÍA
-======================================-->
 
 <div id="modalEditarCategoria" class="modal fade" role="dialog">
   
@@ -182,9 +164,6 @@ MODAL EDITAR CATEGORÍA
 
       <form role="form" method="post">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -194,9 +173,6 @@ MODAL EDITAR CATEGORÍA
 
         </div>
 
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
 
         <div class="modal-body">
 
@@ -221,10 +197,6 @@ MODAL EDITAR CATEGORÍA
           </div>
 
         </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
 
         <div class="modal-footer">
 

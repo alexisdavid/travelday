@@ -9,10 +9,7 @@ require_once "../modelos/categorias.modelo.php";
 
 class TablaReservas{
 
- 	/*=============================================
- 	 MOSTRAR LA TABLA DE PRODUCTOS
-  	=============================================*/ 
-
+ 	
 	public function mostrarTablaReservas(){
 
 		$item = null;
@@ -25,24 +22,17 @@ class TablaReservas{
 
 		  for($i = 0; $i < count($productos); $i++){
 
-		  	/*=============================================
- 	 		TRAEMOS LA IMAGEN
-  			=============================================*/ 
-
+		  	
 		  	$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
 
-		  	/*=============================================
- 	 		TRAEMOS LA CATEGORÍA
-  			=============================================*/ 
+		 
 
 		  	$item = "id";
 		  	$valor = $productos[$i]["id_categoria"];
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-		  	/*=============================================
- 	 		STOCK
-  			=============================================*/ 
+		  
 
   			if($productos[$i]["stock"] <= 10){
 
@@ -57,10 +47,6 @@ class TablaReservas{
   				$stock = "<button class='btn btn-success'>".$productos[$i]["stock"]."</button>";
 
   			}
-
-		  	/*=============================================
- 	 		TRAEMOS LAS ACCIONES
-  			=============================================*/ 
 
 		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-edit'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
 
@@ -93,9 +79,7 @@ class TablaReservas{
 
 }
 
-/*=============================================
-ACTIVAR TABLA DE PRODUCTOS
-=============================================*/ 
+
 $activarReservas = new TablaReservas();
 $activarReservas -> mostrarTablaReservas();
 

@@ -8,9 +8,7 @@ require_once "../modelos/categorias.modelo.php";
 
 class AjaxProductos{
 
-  /*=============================================
-  GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-  =============================================*/
+
   public $idCategoria;
 
   public function ajaxCrearCodigoProducto(){
@@ -25,9 +23,6 @@ class AjaxProductos{
   }
 
 
-  /*=============================================
-  EDITAR PRODUCTO
-  =============================================*/ 
 
   public $idProducto;
 
@@ -45,10 +40,6 @@ class AjaxProductos{
 }
 
 
-/*=============================================
-GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-=============================================*/	
-
 if(isset($_POST["idCategoria"])){
 
 	$codigoProducto = new AjaxProductos();
@@ -56,10 +47,6 @@ if(isset($_POST["idCategoria"])){
 	$codigoProducto -> ajaxCrearCodigoProducto();
 
 }
-/*=============================================
-EDITAR PRODUCTO
-=============================================*/ 
-
 if(isset($_POST["idProducto"])){
 
   $editarProducto = new AjaxProductos();

@@ -22,9 +22,6 @@
 		</span>
 	</a>
 
-	<!--=====================================
-	BARRA DE NAVEGACIÓN
-	======================================-->
 	<nav class="navbar navbar-static-top" role="navigation">
 		
 		<!-- Botón de navegación -->

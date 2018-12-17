@@ -6,9 +6,6 @@ require_once "../modelos/rutas.modelo.php";
 class AjaxRuta{
 
 
-   /*=============================================
-  GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-  =============================================*/
   public $idCategoria;
 
   public function ajaxCrearCodigoRuta(){
@@ -21,10 +18,6 @@ class AjaxRuta{
     echo json_encode($respuesta);
   }
 
-
-    /*=============================================
-  EDITAR RUTA
-  =============================================*/ 
 
   public $idRuta;
 
@@ -40,24 +33,11 @@ class AjaxRuta{
   }
 
 
-}
-
-
-
-
-/*=============================================
-GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-=============================================*/ 
-if(isset($_POST["idCategoria"])){
+} if(isset($_POST["idCategoria"])){
   $codigoRuta = new AjaxRuta();
   $codigoRuta -> idCategoria = $_POST["idCategoria"];
   $codigoRuta -> ajaxCrearCodigoRuta();
 }
-
-/*=============================================
-EDITAR BARCO
-=============================================*/ 
-
 if(isset($_POST["idRuta"])){
 
   $editarRuta = new AjaxRuta();

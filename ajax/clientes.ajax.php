@@ -5,10 +5,7 @@ require_once "../modelos/clientes.modelo.php";
 
 class AjaxClientes{
 
-	/*=============================================
-	EDITAR CLIENTE
-	=============================================*/	
-
+	
 	public $idCliente;
 
 	public function ajaxEditarCliente(){
@@ -25,9 +22,6 @@ class AjaxClientes{
 
 }
 
-/*=============================================
-EDITAR CLIENTE
-=============================================*/	
 
 if(isset($_POST["idCliente"])){
 

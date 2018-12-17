@@ -10,9 +10,7 @@ require_once "../modelos/categorias.modelo.php";
 
 class TablaRutas{
 
- 	/*=============================================
- 	 MOSTRAR LA TABLA DE BARCO
-  	=============================================*/ 
+ 	
 
 	public function mostrarTablaRutas(){
 
@@ -27,26 +25,16 @@ class TablaRutas{
 
 		  for($i = 0; $i < count($ruta); $i++){
 
-		  	/*=============================================
- 	 		TRAEMOS LA IMAGEN
-  			=============================================*/ 
 
 		  	$imagen = "<img src='".$ruta[$i]["imagen"]."' width='40px'>";
 
-		  	/*=============================================
- 	 		TRAEMOS LA CATEGORÍA
-  			=============================================*/ 
+		  	
 
 		  	$item = "id";
 		  	$valor = $ruta[$i]["idCategoria"];
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-		  
-
-		  	/*=============================================
- 	 		TRAEMOS LAS ACCIONES
-  			=============================================*/ 
   			if(isset($_GET["perfilOculto"]) && $_GET["perfilOculto"] == "Especial"){
 
 		  	$botones =  "<div class='btn-group'><button class='btn btn-info btnDetallesRuta' idRuta='".$ruta[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='far fa-calendar-plus'></i></button><button class='btn btn-warning btnEditarRuta' idRuta='".$ruta[$i]["id"]."' data-toggle='modal' data-target='#modalEditarRuta'><i class='far fa-edit'></i></button>"; 
@@ -81,15 +69,5 @@ class TablaRutas{
 
 
 }
-
-
-
-
-
-
-
-/*=============================================
-ACTIVAR TABLA DE RUTAS
-=============================================*/ 
 $activarRuta = new TablaRutas();
 $activarRuta -> mostrarTablaRutas();

@@ -6,11 +6,6 @@ require_once "../modelos/categorias.modelo.php";
 class AjaxBarco{
 
 
-
-
-   /*=============================================
-  GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-  =============================================*/
   public $idCategoria;
 
   public function ajaxCrearCodigoBarco(){
@@ -23,10 +18,6 @@ class AjaxBarco{
     echo json_encode($respuesta);
   }
 
-
-    /*=============================================
-  EDITAR PRODUCTO
-  =============================================*/ 
 
   public $idBarco;
 
@@ -45,23 +36,11 @@ class AjaxBarco{
 }
 
 
-
-
-
-
-/*=============================================
-GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
-=============================================*/ 
 if(isset($_POST["idCategoria"])){
   $codigoBarco = new AjaxBarco();
   $codigoBarco -> idCategoria = $_POST["idCategoria"];
   $codigoBarco -> ajaxCrearCodigoBarco();
 }
-
-
-/*=============================================
-EDITAR BARCO
-=============================================*/ 
 
 if(isset($_POST["idBarco"])){
 
